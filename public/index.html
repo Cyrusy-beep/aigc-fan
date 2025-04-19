@@ -1,0 +1,2001 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta name="generator" content="Hugo 0.146.5"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>AigcFan AI工具导航</title>
+<meta name="theme-color" content="#151c2c" />
+<meta name="keywords" content="Webstack Hugo theme">
+<meta name="description" content="Webstack Hugo theme">
+<meta property="og:type" content="article">
+<meta property="og:url" content="">
+<meta property="og:title" content="">
+<meta property="og:description" content="">
+<meta property="og:image" content="">
+<meta property="og:site_name" content="">
+
+<script>
+(function() {
+    
+    document.documentElement.style.visibility = 'hidden';
+    
+    
+    var currentTheme = localStorage.getItem('theme') || 'dark';
+    if (currentTheme === 'light') {
+        document.documentElement.classList.add('light-theme');
+    } else {
+        document.documentElement.classList.add('ai-theme');
+    }
+    
+    
+    var style = document.createElement('style');
+    style.textContent = `
+        /* 预加载关键卡片样式，防止闪烁 */
+        .ai-theme .xe-widget.xe-conversations {
+            background: #1e2538;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+            border: 1px solid #2a324b;
+            transition: all 0.3s ease;
+        }
+        
+        .light-theme .xe-widget.xe-conversations {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+        
+        /* 预加载文本颜色，防止文字闪烁 */
+        .ai-theme {
+            color: #ffffff;
+        }
+        
+        .light-theme {
+            color: #2c3e50;
+        }
+        
+        /* 预加载卡片标题样式 */
+        .ai-theme .xe-comment .xe-user-name strong {
+            color: #ffffff;
+        }
+        
+        .light-theme .xe-comment .xe-user-name strong {
+            color: #2c3e50;
+        }
+        
+        /* 预加载卡片描述文本样式 */
+        .ai-theme .xe-comment p {
+            color: #adb5bd;
+        }
+        
+        .light-theme .xe-comment p {
+            color: #6c757d;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    
+    window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            document.documentElement.style.visibility = 'visible';
+        }, 50); 
+    });
+})();
+</script>
+<link rel="shortcut icon" href="./assets/favicon.png">
+<link rel="apple-touch-icon" href="./assets/app-ico.png">
+<link rel='stylesheet' id='font-awesome-css'  href='./assets/css/font-awesome.min.css?ver=4.7.0' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='./assets/css/bootstrap.css?ver=3.4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='nav-css'  href='./assets/css/nav.css?ver=2.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='ai-theme-css'  href='./assets/css/ai-theme.css?ver=1.0.0' type='text/css' media='all' />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script type='text/javascript' src='./assets/js/jquery-1.11.1.min.js'></script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?86cead3bcab6a1417189e6138d69262";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</head>
+<body class="page-body white">
+    <div class="page-container">
+        <div class="sidebar-menu toggle-others fixed">
+            <div class="sidebar-menu-inner">
+                <header class="logo-env">
+                    
+                    <div class="logo">
+                        <a href="index.html" class="logo-expanded">
+                            <img src="./assets/images/logo@2x.png" height="40" alt="" style="margin: 0 auto;" />
+                        </a>
+                        <a href="index.html" class="logo-collapsed">
+                            <img src="./assets/images/logo-collapsed@2x.png" height="40" alt="" style="margin: 0 auto;">
+                        </a>
+                    </div>
+                    <div class="mobile-menu-toggle visible-xs">
+                        <a href="#" data-toggle="mobile-menu">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </div>
+                </header>
+                <ul id="main-menu" class="main-menu">
+                    
+                    
+                        <li>
+                            <a href="#1f9a8df0f720aac518dcf2dfd797fb33" class="smooth">
+                               <i class="fa fa-star fa-fw"></i>
+                               <span class="title">AI必备工具</span>
+                            </a>
+                        </li> 
+                    
+                    
+                    
+                        <li>
+                            <a href="#cef3aa6397c5b3acb453a8866aaf922a" class="smooth">
+                               <i class="fa fa-pencil fa-fw"></i>
+                               <span class="title">AI文本和写作</span>
+                            </a>
+                        </li> 
+                    
+                    
+                    
+                        <li>
+                            <a>
+                               <i class="fa fa-image fa-fw"></i>
+                               <span class="title">AI图像创作</span>
+                            </a>
+                            <ul>
+                                    
+                                <li>
+                                    <a href="#2a7418a5f8f1ca4e054364a9300657df" class="smooth">图像生成</a>
+                                </li>
+                                    
+                                <li>
+                                    <a href="#933cba3a7fecf9ef2195454cc04d3c86" class="smooth">图像编辑</a>
+                                </li>
+                                    
+                                <li>
+                                    <a href="#b526aa405a3e4e8b9700ff3415c6d708" class="smooth">人像和头像</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                    
+                    
+                    
+                        <li>
+                            <a href="#cd1c38e3910c04e8333f112253bb1618" class="smooth">
+                               <i class="fa fa-video-camera fa-fw"></i>
+                               <span class="title">AI视频制作</span>
+                            </a>
+                        </li> 
+                    
+                    
+                    
+                        <li>
+                            <a>
+                               <i class="fa fa-music fa-fw"></i>
+                               <span class="title">AI音频和音乐</span>
+                            </a>
+                            <ul>
+                                    
+                                <li>
+                                    <a href="#d9c9cfab3127c7aec866c3a61c69c1e8" class="smooth">语音合成</a>
+                                </li>
+                                    
+                                <li>
+                                    <a href="#7f57f93f376af00e7f38e568b97b67c6" class="smooth">音乐创作</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                    
+                    
+                    
+                        <li>
+                            <a href="#3a352049aa58b7eb0ece1afd248b1e4a" class="smooth">
+                               <i class="fa fa-code fa-fw"></i>
+                               <span class="title">AI开发工具</span>
+                            </a>
+                        </li> 
+                    
+                    
+                    
+                        <li>
+                            <a href="#0e96c587db9314c1ad601ba0528a00a7" class="smooth">
+                               <i class="fa fa-briefcase fa-fw"></i>
+                               <span class="title">AI生产力工具</span>
+                            </a>
+                        </li> 
+                    
+                    
+                    
+                        <li>
+                            <a href="#faf3ef15d22b0a54f1d7520545b242f7" class="smooth">
+                               <i class="fa fa-comment fa-fw"></i>
+                               <span class="title">大语言模型</span>
+                            </a>
+                        </li> 
+                    
+                    
+                    
+                        <li>
+                            <a href="#64489c771a36a70f2de7da44cbcc2e29" class="smooth">
+                               <i class="fa fa-graduation-cap fa-fw"></i>
+                               <span class="title">AI学习资源</span>
+                            </a>
+                        </li> 
+                    
+                    
+                    <li>
+                        <a href="./about">
+                            <i class="fa fa-heart fa-fw"></i>
+                            <span class="tooltip-blue">关于本站</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-content">
+<nav class="navbar user-info-navbar" role="navigation">
+    <div class="navbar-content">
+        <ul class="user-info-menu left-links list-inline list-unstyled">
+            <li class="hidden-xs">
+            <a href="#" data-toggle="sidebar"><i class="fa fa-bars"></i></a>
+            </li>
+      </ul>
+    </div>
+</nav>
+
+
+<div id="search" class="s-search">
+    <div id="search-list" class="hide-type-list">
+        <div class="s-type">
+            <span></span>
+            <div class="s-type-list animated fadeInUp">
+                <label for="type-baidu">常用</label>
+                <label for="type-search">搜索</label>
+                <label for="type-br">工具</label>
+                <label for="type-zhihu">社区</label>
+                <label for="type-taobao1">生活</label>
+                <label for="type-zhaopin">求职</label>
+            </div>
+        </div>
+        <div class="search-group group-a">
+            <span class="type-text">常用</span>
+            <ul class="search-type">
+                <li><input checked hidden type="radio" name="type" id="type-baidu" value="https://www.baidu.com/s?wd=" data-placeholder="百度一下"><label for="type-baidu"><span style="color:#2100E0">百度</span></label></li>
+                <li><input hidden type="radio" name="type" id="type-google" value="https://www.google.com/search?q=" data-placeholder="谷歌两下"><label for="type-google"><span style="color:#3B83FA">G</span><span style="color:#F3442C">o</span><span style="color:#FFC300">o</span><span style="color:#4696F8">g</span><span style="color:#2CAB4E">l</span><span style="color:#F54231">e</span></label></li>
+                <li><input hidden type="radio" name="type" id="type-bing1" value="https://cn.bing.com/search?q=" data-placeholder="微软Bing搜索"><label for="type-bing1"><span style="color:#007daa">Bing</span></label></li>
+            </ul>
+        </div>
+        <div class="search-group group-b">
+            <span class="type-text">搜索</span>
+            <ul class="search-type">
+                <li><input hidden type="radio" name="type" id="type-search" value="https://www.baidu.com/s?wd=" data-placeholder="百度一下"><label for="type-search"><span style="color:#2319dc">百度</span></label></li>
+                <li><input hidden type="radio" name="type" id="type-google1" value="https://www.google.com/search?q=" data-placeholder="谷歌两下"><label for="type-google1"><span style="color:#3B83FA">G</span><span style="color:#F3442C">o</span><span style="color:#FFC300">o</span><span style="color:#4696F8">g</span><span style="color:#2CAB4E">l</span><span style="color:#F54231">e</span></label></li>
+                <li><input hidden type="radio" name="type" id="type-360" value="https://www.so.com/s?q=" data-placeholder="360好搜"><label for="type-360"><span style="color:#19b955">360</span></label></li>
+                <li><input hidden type="radio" name="type" id="type-sogo" value="https://www.sogou.com/web?query=" data-placeholder="搜狗搜索"><label for="type-sogo"><span style="color:#ff5943">搜狗</span></label></li>
+                <li><input hidden type="radio" name="type" id="type-bing" value="https://cn.bing.com/search?q=" data-placeholder="微软Bing搜索"><label for="type-bing"><span style="color:#007daa">Bing</span></label></li>
+                <li><input hidden type="radio" name="type" id="type-sm" value="https://yz.m.sm.cn/s?q=" data-placeholder="UC移动端搜索"><label for="type-sm"><span style="color:#ff8608">神马</span></label></li>
+            </ul>
+        </div>
+        <div class="search-group group-c">
+            <span class="type-text">工具</span>
+            <ul class="search-type">
+                <li><input hidden type="radio" name="type" id="type-br" value="http://rank.chinaz.com/all/" data-placeholder="请输入网址(不带http://)"><label for="type-br"><span style="color:#55a300">权重查询</span></label></li>
+                <li><input hidden type="radio" name="type" id="type-links" value="http://link.chinaz.com/" data-placeholder="请输入网址(不带http://)"><label for="type-links"><span style="color:#313439">友链检测</span></label></li>
+                <li><input hidden type="radio" name="type" id="type-icp" value="https://icp.aizhan.com/" data-placeholder="请输入网址(不带http://)"><label for="type-icp"><span style="color:#ffac00">备案查询</span></label></li>
+                <li><input hidden type="radio" name="type" id="type-ping" value="http://ping.chinaz.com/" data-placeholder="请输入网址(不带http://)"><label for="type-ping"><span style="color:#00599e">PING检测</span></label></li>
+                <li><input hidden type="radio" name="type" id="type-404" value="http://tool.chinaz.com/Links/?DAddress=" data-placeholder="请输入网址(不带http://)"><label for="type-404"><span style="color:#f00">死链检测</span></label></li>
+                <li><input hidden type="radio" name="type" id="type-ciku" value="http://www.ciku5.com/s?wd=" data-placeholder="请输入关键词"><label for="type-ciku"><span style="color:#016DBD">关键词挖掘</span></label></li>
+            </ul>
+        </div>
+        <div class="search-group group-d">
+            <span class="type-text">社区</span>
+            <ul class="search-type">
+                <li><input hidden type="radio" name="type" id="type-zhihu" value="https://www.zhihu.com/search?type=content&q=" data-placeholder="知乎"><label for="type-zhihu"><span style="color:#0084ff">知乎</span></label></li>
+                <li><input hidden type="radio" name="type" id="type-wechat" value="http://weixin.sogou.com/weixin?type=2&query=" data-placeholder="微信"><label for="type-wechat"><span style="color:#00a06a">微信</span></label></li>
+                <li><input hidden type="radio" name="type" id="type-weibo" value="http://s.weibo.com/weibo/" data-placeholder="微博"><label for="type-weibo"><span style="color:#e6162d">微博</span></label></li>
+                <li><input hidden type="radio" name="type" id="type-douban" value="https://www.douban.com/search?q=" data-placeholder="豆瓣"><label for="type-douban"><span style="color:#55a300">豆瓣</span></label></li>
+                <li><input hidden type="radio" name="type" id="type-why" value="https://ask.seowhy.com/search/?q=" data-placeholder="SEO问答社区"><label for="type-why"><span style="color:#428bca">搜外问答</span></label></li>
+            </ul>
+            </div>
+        <div class="search-group group-e">
+            <span class="type-text">生活</span>
+            <ul class="search-type">
+                <li><input hidden type="radio" name="type" id="type-taobao1" value="https://s.taobao.com/search?q=" data-placeholder="淘宝"><label for="type-taobao1"><span style="color:#f40">淘宝</span></label></li>
+                <li><input hidden type="radio" name="type" id="type-jd" value="https://search.jd.com/Search?keyword=" data-placeholder="京东"><label for="type-jd"><span style="color:#c91623">京东</span></label></li>
+                <li><input hidden type="radio" name="type" id="type-xiachufang" value="http://www.xiachufang.com/search/?keyword=" data-placeholder="下厨房"><label for="type-xiachufang"><span style="color:#dd3915">下厨房</span></label></li>
+                <li><input hidden type="radio" name="type" id="type-xiangha" value="https://www.xiangha.com/so/?q=caipu&s=" data-placeholder="香哈菜谱"><label for="type-xiangha"><span style="color:#930">香哈菜谱</span></label></li>
+                <li><input hidden type="radio" name="type" id="type-12306" value="http://www.12306.cn/?" data-placeholder="12306"><label for="type-12306"><span style="color:#07f">12306</span></label></li>
+                <li><input hidden type="radio" name="type" id="type-qunar" value="https://www.qunar.com/?" data-placeholder="去哪儿"><label for="type-qunar"><span style="color:#00afc7">去哪儿</span></label></li>
+                <li><input hidden type="radio" name="type" id="type-快递100" value="http://www.kuaidi100.com/?" data-placeholder="快递100"><label for="type-快递100"><span style="color:#3278e6">快递100</span></label></li>
+            </ul>
+        </div>
+        <div class="search-group group-f">
+            <span class="type-text">求职</span>
+            <ul class="search-type">
+                <li><input hidden type="radio" name="type" id="type-zhaopin" value="https://sou.zhaopin.com/jobs/searchresult.ashx?kw=" data-placeholder="智联招聘"><label for="type-zhaopin"><span style="color:#689fee">智联招聘</span></label></li>
+                <li><input hidden type="radio" name="type" id="type-51job" value="https://search.51job.com/?" data-placeholder="前程无忧"><label for="type-51job"><span style="color:#ff6000">前程无忧</span></label></li>
+                <li><input hidden type="radio" name="type" id="type-lagou" value="https://www.lagou.com/jobs/list_" data-placeholder="拉钩网"><label for="type-lagou"><span style="color:#00b38a">拉钩网</span></label></li>
+                <li><input hidden type="radio" name="type" id="type-liepin" value="https://www.liepin.com/zhaopin/?key=" data-placeholder="猎聘网"><label for="type-liepin"><span style="color:#303a40">猎聘网</span></label></li>
+            </ul>
+        </div>
+    </div>
+    <form action="?s=" method="get" target="_blank" id="super-search-fm"><input type="text" id="search-text" placeholder="输入关键字搜索" style="outline:0"><button type="submit"><i class="fa fa-search "></i></button></form>
+    <div class="set-check hidden-xs">
+        <input type="checkbox" id="set-search-blank" class="bubble-3" autocomplete="off">
+    </div>
+</div>
+<script type="text/javascript">
+eval(function(e,t,a,c,i,n){if(i=function(e){return(e<t?"":i(parseInt(e/t)))+(35<(e%=t)?String.fromCharCode(e+29):e.toString(36))},!"".replace(/^/,String)){for(;a--;)n[i(a)]=c[a]||i(a);c=[function(e){return n[e]}],i=function(){return"\\w+"},a=1}for(;a--;)c[a]&&(e=e.replace(new RegExp("\\b"+i(a)+"\\b","g"),c[a]));return e}('!2(){2 g(){h(),i(),j(),k()}2 h(){d.9=s()}2 i(){z a=4.8(\'A[B="7"][5="\'+p()+\'"]\');a&&(a.9=!0,l(a))}2 j(){v(u())}2 k(){w(t())}2 l(a){P(z b=0;b<e.O;b++)e[b].I.1c("s-M");a.F.F.F.I.V("s-M")}2 m(a,b){E.H.S("L"+a,b)}2 n(a){6 E.H.Y("L"+a)}2 o(a){f=a.3,v(u()),w(a.3.5),m("7",a.3.5),c.K(),l(a.3)}2 p(){z b=n("7");6 b||a[0].5}2 q(a){m("J",a.3.9?1:-1),x(a.3.9)}2 r(a){6 a.11(),""==c.5?(c.K(),!1):(w(t()+c.5),x(s()),s()?E.U(b.G,+T X):13.Z=b.G,10 0)}2 s(){z a=n("J");6 a?1==a:!0}2 t(){6 4.8(\'A[B="7"]:9\').5}2 u(){6 4.8(\'A[B="7"]:9\').W("14-N")}2 v(a){c.1e("N",a)}2 w(a){b.G=a}2 x(a){a?b.3="1a":b.16("3")}z y,a=4.R(\'A[B="7"]\'),b=4.8("#18-C-19"),c=4.8("#C-12"),d=4.8("#17-C-15"),e=4.R(".C-1b"),f=a[0];P(g(),y=0;y<a.O;y++)a[y].D("Q",o);d.D("Q",q),b.D("1d",r)}();',62,77,"||function|target|document|value|return|type|querySelector|checked||||||||||||||||||||||||||var|input|name|search|addEventListener|window|parentNode|action|localStorage|classList|newWindow|focus|superSearch|current|placeholder|length|for|change|querySelectorAll|setItem|new|open|add|getAttribute|Date|getItem|href|void|preventDefault|text|location|data|blank|removeAttribute|set|super|fm|_blank|group|remove|submit|setAttribute".split("|"),0,{}));
+</script>
+
+
+<div class="sites-list" style="margin-bottom: 8.5rem;">
+
+    
+        
+        <h4 class="text-gray" style="display: inline-block;"><i class="icon-io-tag" style="margin-right: 27px;" id="1f9a8df0f720aac518dcf2dfd797fb33"></i>AI必备工具</h4>
+            <div class="row">
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://chat.openai.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/chatgpt.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>ChatGPT</strong>
+                                </div>
+                                <p class="overflowClip_2">OpenAI开发的对话式大型语言模型，能回答问题、写作、编程等</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://claude.ai/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/claude.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Claude</strong>
+                                </div>
+                                <p class="overflowClip_2">Anthropic的AI助手，擅长长文档处理和复杂推理</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.midjourney.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/midjourney.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Midjourney</strong>
+                                </div>
+                                <p class="overflowClip_2">强大的AI绘画工具，通过文本指令生成精美图像</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://openai.com/dall-e-3" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/dalle.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>DALL-E 3</strong>
+                                </div>
+                                <p class="overflowClip_2">OpenAI的图像生成模型，能将文本描述转换为详细图像</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://gemini.google.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/gemini.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Gemini</strong>
+                                </div>
+                                <p class="overflowClip_2">Google的大语言模型，支持文本、图像等多模态交互</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://github.com/features/copilot" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/copilot.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Copilot</strong>
+                                </div>
+                                <p class="overflowClip_2">GitHub的AI编程助手，提供实时代码建议和自动补全</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://runwayml.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/runway.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Runway</strong>
+                                </div>
+                                <p class="overflowClip_2">AI视频生成和编辑工具，可创建和编辑视频内容</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.synthesia.io/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/synthesia.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Synthesia</strong>
+                                </div>
+                                <p class="overflowClip_2">AI视频制作平台，可从文本创建逼真的AI视频</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.jasper.ai/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/jasper.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Jasper</strong>
+                                </div>
+                                <p class="overflowClip_2">AI写作助手，帮助创建营销文案和内容</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+            </div>
+        <br />
+        
+    
+
+    
+        
+        <h4 class="text-gray" style="display: inline-block;"><i class="icon-io-tag" style="margin-right: 27px;" id="cef3aa6397c5b3acb453a8866aaf922a"></i>AI文本和写作</h4>
+            <div class="row">
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.notion.so/product/ai" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/notion.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Notion AI</strong>
+                                </div>
+                                <p class="overflowClip_2">Notion集成的AI写作助手，提供内容创建和编辑功能</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.copy.ai/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/copyai.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Copy.ai</strong>
+                                </div>
+                                <p class="overflowClip_2">AI营销文案和内容生成工具</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.grammarly.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/grammarly.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Grammarly</strong>
+                                </div>
+                                <p class="overflowClip_2">AI写作助手，提供语法检查和写作改进建议</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://writesonic.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/writesonic.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Writesonic</strong>
+                                </div>
+                                <p class="overflowClip_2">AI内容创作平台，可生成各种类型的营销和创意内容</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://quillbot.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/quillbot.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>QuillBot</strong>
+                                </div>
+                                <p class="overflowClip_2">AI改写和摘要工具，帮助优化文本表达</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://rytr.me/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/rytr.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Rytr</strong>
+                                </div>
+                                <p class="overflowClip_2">AI写作平台，帮助创建博客、邮件和社交媒体内容</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.perplexity.ai/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/perplexity.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Perplexity AI</strong>
+                                </div>
+                                <p class="overflowClip_2">AI搜索引擎，提供详细的问题回答和信息汇总</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.deepl.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/deepl.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>DeepL</strong>
+                                </div>
+                                <p class="overflowClip_2">AI翻译工具，提供高质量的多语言翻译</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+            </div>
+        <br />
+        
+    
+
+    
+        
+        
+        <h4 class="text-gray" style="display: inline-block;"><i class="icon-io-tag" style="margin-right: 27px;" id="2a7418a5f8f1ca4e054364a9300657df"></i>图像生成</h4>
+            <div class="row">
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://stability.ai/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/stablediffusion.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Stable Diffusion</strong>
+                                </div>
+                                <p class="overflowClip_2">开源AI图像生成模型，可通过文本提示创建详细图像</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://leonardo.ai/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/leonardo.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Leonardo.ai</strong>
+                                </div>
+                                <p class="overflowClip_2">AI创意设计工具，专为创作者和设计师打造</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://playgroundai.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/playgroundai.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Playground AI</strong>
+                                </div>
+                                <p class="overflowClip_2">用户友好的AI图像生成平台</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://firefly.adobe.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/firefly.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Firefly</strong>
+                                </div>
+                                <p class="overflowClip_2">Adobe的AI图像生成工具，集成于Creative Cloud</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.craiyon.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/craiyon.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Craiyon</strong>
+                                </div>
+                                <p class="overflowClip_2">免费AI图像生成工具，前身为DALL-E mini</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.bing.com/create" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/bingimage.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Bing Image Creator</strong>
+                                </div>
+                                <p class="overflowClip_2">微软基于DALL-E的免费图像生成工具</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+            </div>
+        <br />
+        
+        
+        
+        <h4 class="text-gray" style="display: inline-block;"><i class="icon-io-tag" style="margin-right: 27px;" id="933cba3a7fecf9ef2195454cc04d3c86"></i>图像编辑</h4>
+            <div class="row">
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.canva.com/ai-image-generator/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/canva.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Canva AI</strong>
+                                </div>
+                                <p class="overflowClip_2">Canva的AI图像生成和编辑功能</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.fotor.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/fotor.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Fotor</strong>
+                                </div>
+                                <p class="overflowClip_2">在线照片编辑器，提供AI增强功能</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.remove.bg/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/removebg.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Remove.bg</strong>
+                                </div>
+                                <p class="overflowClip_2">AI自动移除图片背景工具</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://letsenhance.io/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/letsenhance.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Let&#39;s Enhance</strong>
+                                </div>
+                                <p class="overflowClip_2">AI图像放大和质量提升工具</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.artbreeder.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/artbreeder.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Artbreeder</strong>
+                                </div>
+                                <p class="overflowClip_2">AI艺术创作平台，可混合和探索图像</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+            </div>
+        <br />
+        
+        
+        
+        <h4 class="text-gray" style="display: inline-block;"><i class="icon-io-tag" style="margin-right: 27px;" id="b526aa405a3e4e8b9700ff3415c6d708"></i>人像和头像</h4>
+            <div class="row">
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://prisma-ai.com/lensa" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/lensa.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Lensa</strong>
+                                </div>
+                                <p class="overflowClip_2">AI照片编辑应用，以其魔法头像功能闻名</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.profilepicture.ai/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/profilepicture.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Profile Picture AI</strong>
+                                </div>
+                                <p class="overflowClip_2">使用AI生成专业头像照片</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://readyplayer.me/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/readyplayerme.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Ready Player Me</strong>
+                                </div>
+                                <p class="overflowClip_2">创建3D虚拟化身用于游戏和虚拟世界</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.myheritage.com/deep-nostalgia" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/myheritage.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>MyHeritage</strong>
+                                </div>
+                                <p class="overflowClip_2">Deep Nostalgia技术，让老照片中的人物动起来</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+            </div>
+        <br />
+        
+        
+    
+
+    
+        
+        <h4 class="text-gray" style="display: inline-block;"><i class="icon-io-tag" style="margin-right: 27px;" id="cd1c38e3910c04e8333f112253bb1618"></i>AI视频制作</h4>
+            <div class="row">
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://research.runwayml.com/gen2" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/runwaygen.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Runway Gen-2</strong>
+                                </div>
+                                <p class="overflowClip_2">新一代AI视频生成技术，可从文本和图像创建视频</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.heygen.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/heygen.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>HeyGen</strong>
+                                </div>
+                                <p class="overflowClip_2">AI视频生成平台，可创建逼真的数字人视频</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.d-id.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/did.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>D-ID</strong>
+                                </div>
+                                <p class="overflowClip_2">数字人视频生成，让静态图像说话</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.descript.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/descript.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Descript</strong>
+                                </div>
+                                <p class="overflowClip_2">AI视频编辑工具，提供文本编辑视频功能</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.kapwing.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/kapwing.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Kapwing</strong>
+                                </div>
+                                <p class="overflowClip_2">在线视频编辑器，集成AI功能</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://fliki.ai/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/fliki.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Fliki</strong>
+                                </div>
+                                <p class="overflowClip_2">文本转视频工具，自动配音和生成</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://pictory.ai/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/pictory.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Pictory</strong>
+                                </div>
+                                <p class="overflowClip_2">从长文本内容自动创建短视频</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.synthesia.io/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/synthesia.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Synthesia</strong>
+                                </div>
+                                <p class="overflowClip_2">使用AI虚拟人创建专业视频</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+            </div>
+        <br />
+        
+    
+
+    
+        
+        
+        <h4 class="text-gray" style="display: inline-block;"><i class="icon-io-tag" style="margin-right: 27px;" id="d9c9cfab3127c7aec866c3a61c69c1e8"></i>语音合成</h4>
+            <div class="row">
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://elevenlabs.io/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/elevenlabs.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>ElevenLabs</strong>
+                                </div>
+                                <p class="overflowClip_2">AI语音合成技术，可创建逼真的人声</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://play.ht/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/playht.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Play.ht</strong>
+                                </div>
+                                <p class="overflowClip_2">文本转语音生成器，提供自然的AI声音</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.resemble.ai/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/resemble.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Resemble.ai</strong>
+                                </div>
+                                <p class="overflowClip_2">AI语音克隆和语音生成平台</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://murf.ai/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/murf.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Murf</strong>
+                                </div>
+                                <p class="overflowClip_2">AI语音生成器，适用于视频配音和演示</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://speechify.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/speechify.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Speechify</strong>
+                                </div>
+                                <p class="overflowClip_2">文本转语音应用，可朗读任何文本</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+            </div>
+        <br />
+        
+        
+        
+        <h4 class="text-gray" style="display: inline-block;"><i class="icon-io-tag" style="margin-right: 27px;" id="7f57f93f376af00e7f38e568b97b67c6"></i>音乐创作</h4>
+            <div class="row">
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.suno.ai/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/suno.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Suno</strong>
+                                </div>
+                                <p class="overflowClip_2">AI音乐生成工具，可通过文本描述创作歌曲</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://soundraw.io/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/soundraw.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Soundraw</strong>
+                                </div>
+                                <p class="overflowClip_2">AI作曲工具，为创作者生成免版权音乐</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.aiva.ai/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/aiva.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>AIVA</strong>
+                                </div>
+                                <p class="overflowClip_2">AI作曲助手，可创作情感音乐</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.beatoven.ai/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/beatoven.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Beatoven.ai</strong>
+                                </div>
+                                <p class="overflowClip_2">创建适合视频和播客的自定义AI音乐</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://boomy.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/boomy.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Boomy</strong>
+                                </div>
+                                <p class="overflowClip_2">在几秒钟内创建原创AI生成的歌曲</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+            </div>
+        <br />
+        
+        
+    
+
+    
+        
+        <h4 class="text-gray" style="display: inline-block;"><i class="icon-io-tag" style="margin-right: 27px;" id="3a352049aa58b7eb0ece1afd248b1e4a"></i>AI开发工具</h4>
+            <div class="row">
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://github.com/features/copilot" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/githubcopilot.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>GitHub Copilot</strong>
+                                </div>
+                                <p class="overflowClip_2">AI代码助手，提供实时编程建议</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://replit.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/replit.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Replit</strong>
+                                </div>
+                                <p class="overflowClip_2">在线代码编辑器和开发环境，集成AI功能</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.tabnine.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/tabnine.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Tabnine</strong>
+                                </div>
+                                <p class="overflowClip_2">AI代码补全工具，支持多种编程语言</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://aws.amazon.com/codewhisperer/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/codewhisperer.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>CodeWhisperer</strong>
+                                </div>
+                                <p class="overflowClip_2">亚马逊的AI编程助手，类似Copilot</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://cursor.so/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/cursor.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Cursor</strong>
+                                </div>
+                                <p class="overflowClip_2">集成AI的代码编辑器，帮助编写和理解代码</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://codeium.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/codeium.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Codeium</strong>
+                                </div>
+                                <p class="overflowClip_2">免费AI代码补全工具，兼容各种IDE</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.warp.dev/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/warp.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Warp</strong>
+                                </div>
+                                <p class="overflowClip_2">现代终端应用，集成AI辅助功能</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://codegpt.co/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/codegpt.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>CodeGPT</strong>
+                                </div>
+                                <p class="overflowClip_2">VSCode插件，在编辑器中集成AI编程助手</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+            </div>
+        <br />
+        
+    
+
+    
+        
+        <h4 class="text-gray" style="display: inline-block;"><i class="icon-io-tag" style="margin-right: 27px;" id="0e96c587db9314c1ad601ba0528a00a7"></i>AI生产力工具</h4>
+            <div class="row">
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.notion.so/product/ai" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/notion.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Notion AI</strong>
+                                </div>
+                                <p class="overflowClip_2">集成在Notion中的AI助手，提高笔记和文档效率</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://mem.ai/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/mem.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Mem</strong>
+                                </div>
+                                <p class="overflowClip_2">AI驱动的个人知识库和笔记工具</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://otter.ai/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/otter.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Otter.ai</strong>
+                                </div>
+                                <p class="overflowClip_2">AI会议记录和语音转文字工具</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.taskade.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/taskade.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Taskade</strong>
+                                </div>
+                                <p class="overflowClip_2">AI驱动的项目管理和协作工具</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://zapier.com/ai" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/zapier.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Zapier AI</strong>
+                                </div>
+                                <p class="overflowClip_2">自动化工作流工具中的AI助手</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.make.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/make.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Make</strong>
+                                </div>
+                                <p class="overflowClip_2">可视化工作流自动化平台</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.beautiful.ai/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/beautifulai.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Beautiful.ai</strong>
+                                </div>
+                                <p class="overflowClip_2">AI演示文稿创建工具，自动设计精美幻灯片</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://gamma.app/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/gamma.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Gamma</strong>
+                                </div>
+                                <p class="overflowClip_2">AI驱动的演示和文档创建工具</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+            </div>
+        <br />
+        
+    
+
+    
+        
+        <h4 class="text-gray" style="display: inline-block;"><i class="icon-io-tag" style="margin-right: 27px;" id="faf3ef15d22b0a54f1d7520545b242f7"></i>大语言模型</h4>
+            <div class="row">
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://chat.openai.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/chatgpt.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>ChatGPT</strong>
+                                </div>
+                                <p class="overflowClip_2">OpenAI的对话式大型语言模型</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://claude.ai/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/claude.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Claude</strong>
+                                </div>
+                                <p class="overflowClip_2">Anthropic的AI助手，注重理解和安全</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://gemini.google.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/gemini.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Gemini</strong>
+                                </div>
+                                <p class="overflowClip_2">Google的多模态大语言模型</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.perplexity.ai/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/perplexity.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Perplexity</strong>
+                                </div>
+                                <p class="overflowClip_2">AI搜索引擎，提供有来源引用的回答</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://llama.meta.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/llama.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Llama 3</strong>
+                                </div>
+                                <p class="overflowClip_2">Meta的开源大语言模型，提供多种尺寸版本</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://mistral.ai/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/mistral.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>MistralAI</strong>
+                                </div>
+                                <p class="overflowClip_2">开放高效的大语言模型，各种规模选择</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://cohere.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/cohere.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Cohere</strong>
+                                </div>
+                                <p class="overflowClip_2">专注于企业的对话和生成式AI解决方案</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://01.ai/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/yi.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Yi</strong>
+                                </div>
+                                <p class="overflowClip_2">01.AI开发的开源大语言模型</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+            </div>
+        <br />
+        
+    
+
+    
+        
+        <h4 class="text-gray" style="display: inline-block;"><i class="icon-io-tag" style="margin-right: 27px;" id="64489c771a36a70f2de7da44cbcc2e29"></i>AI学习资源</h4>
+            <div class="row">
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.fast.ai/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/fastai.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Fast.ai</strong>
+                                </div>
+                                <p class="overflowClip_2">免费实用的深度学习课程和资源</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://huggingface.co/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/huggingface.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Hugging Face</strong>
+                                </div>
+                                <p class="overflowClip_2">AI模型和数据集共享平台，开源社区</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.coursera.org/specializations/deep-learning" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/coursera.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Coursera AI</strong>
+                                </div>
+                                <p class="overflowClip_2">Andrew Ng的深度学习专项课程</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.kaggle.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/kaggle.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Kaggle</strong>
+                                </div>
+                                <p class="overflowClip_2">数据科学竞赛平台和学习资源</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://paperswithcode.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/paperswithcode.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>Papers with Code</strong>
+                                </div>
+                                <p class="overflowClip_2">机器学习论文和相关实现代码</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.yanxishe.com/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/ailearning.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>AI研习社</strong>
+                                </div>
+                                <p class="overflowClip_2">中文AI学习社区和资源平台</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://d2l.ai/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/d2l.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>动手学深度学习</strong>
+                                </div>
+                                <p class="overflowClip_2">互动式深度学习教程和电子书</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+                
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="https://www.deeplearning.ai/" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="assets/images/logos/deeplearningai.png" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>DeepLearning.AI</strong>
+                                </div>
+                                <p class="overflowClip_2">Andrew Ng创办的AI教育平台</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+            </div>
+        <br />
+        
+    
+
+</div>
+            <footer class="main-footer sticky footer-type-1">
+                <div class="go-up">
+                    <a href="#" rel="go-top">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+                <div class="footer-inner">
+                    <div class="footer-text">
+                        Copyright © 2025 <a href=""><strong>AigcFan.com</strong></a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script type='text/javascript' src='./assets/js/bootstrap.min.js?ver=3.4.1'></script>
+    <script type='text/javascript' src='./assets/js/TweenMax.min.js?ver=1.13.1'></script>
+    <script type='text/javascript' src='./assets/js/perfect-scrollbar.min.js?ver=0.5.8'></script>
+    <script type='text/javascript' src='./assets/js/nav.js?ver=2.0.0'></script>
+    <script type='text/javascript' src='./assets/js/lazyload.min.js?ver=2.0.0'></script>
+    <script src="./assets/js/ai-theme.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(document).on('click', '.has-sub', function(){
+                var _this = $(this)
+                if(!$(this).hasClass('expanded')) {
+                   setTimeout(function(){
+                        _this.find('ul').attr("style","")
+                   }, 300);
+                  
+                } else {
+                    $('.has-sub ul').each(function(id,ele){
+                        var _that = $(this)
+                        if(_this.find('ul')[0] != ele) {
+                            setTimeout(function(){
+                                _that.attr("style","")
+                            }, 300);
+                        }
+                    })
+                }
+            })
+            $('.user-info-menu .hidden-xs').click(function(){
+                if($('.sidebar-menu').hasClass('collapsed')) {
+                    $('.has-sub.expanded > ul').attr("style","")
+                } else {
+                    $('.has-sub.expanded > ul').show()
+                }
+            })
+            $("#main-menu li ul li").click(function() {
+                $(this).siblings('li').removeClass('active'); 
+                $(this).addClass('active'); 
+            });
+            
+            
+            
+            
+            
+            return false;
+        });
+
+        
+        
+    </script>
+</body>
+</html>

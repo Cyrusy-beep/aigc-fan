@@ -1,0 +1,15 @@
+baseURL = "http://localhost:1313/"
+languageCode = "zh-CN"
+title = "AigcFan AI工具导航"
+theme = "webstack-hugo"
+preserveTaxonomyNames = true
+disablePathToLower = true
+hasCJKLanguage = true
+copyright = "AigcFan.com"
+[params]
+  author = "AigcFan"
+  description = "精选AI工具导航站 - 发现最新最实用的人工智能工具"
+[params.search]
+  enable = true
+[params.darkmode]
+  enable = false

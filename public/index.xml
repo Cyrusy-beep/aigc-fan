@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AigcFan AI工具导航</title>
+    <link>http://localhost:50692/</link>
+    <description>Recent content on AigcFan AI工具导航</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <copyright>AigcFan.com</copyright>
+    <lastBuildDate>Tue, 28 Jul 2020 19:27:08 +0800</lastBuildDate>
+    <atom:link href="http://localhost:50692/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于网站</title>
+      <link>http://localhost:50692/about/</link>
+      <pubDate>Tue, 28 Jul 2020 19:27:08 +0800</pubDate>
+      <guid>http://localhost:50692/about/</guid>
+      <description>&lt;h3 id=&#34;aigcfan-ai工具导航站&#34;&gt;AigcFan AI工具导航站&lt;/h3&gt;&#xA;&lt;p&gt;欢迎来到AigcFan AI工具导航站！我们是一个专注于收集和分享优质AI工具的导航平台，旨在帮助用户快速找到最实用、最前沿的人工智能应用。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>{{ .Site.Title }}</title>
+<meta name="theme-color" content="#151c2c" />
+<meta name="keywords" content="Webstack Hugo theme">
+<meta name="description" content="Webstack Hugo theme">
+<meta property="og:type" content="article">
+<meta property="og:url" content="">
+<meta property="og:title" content="">
+<meta property="og:description" content="">
+<meta property="og:image" content="">
+<meta property="og:site_name" content="">
+<!-- 预加载主题脚本 - 防止闪烁 -->
+<script>
+(function() {
+    // 临时隐藏页面，加载完毕后再显示
+    document.documentElement.style.visibility = 'hidden';
+    
+    // 在页面开始渲染前应用主题
+    var currentTheme = localStorage.getItem('theme') || 'dark';
+    if (currentTheme === 'light') {
+        document.documentElement.classList.add('light-theme');
+    } else {
+        document.documentElement.classList.add('ai-theme');
+    }
+    
+    // 预加载关键CSS，防止卡片闪烁
+    var style = document.createElement('style');
+    style.textContent = `
+        /* 预加载关键卡片样式，防止闪烁 */
+        .ai-theme .xe-widget.xe-conversations {
+            background: #1e2538;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+            border: 1px solid #2a324b;
+            transition: all 0.3s ease;
+        }
+        
+        .light-theme .xe-widget.xe-conversations {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+        
+        /* 预加载文本颜色，防止文字闪烁 */
+        .ai-theme {
+            color: #ffffff;
+        }
+        
+        .light-theme {
+            color: #2c3e50;
+        }
+        
+        /* 预加载卡片标题样式 */
+        .ai-theme .xe-comment .xe-user-name strong {
+            color: #ffffff;
+        }
+        
+        .light-theme .xe-comment .xe-user-name strong {
+            color: #2c3e50;
+        }
+        
+        /* 预加载卡片描述文本样式 */
+        .ai-theme .xe-comment p {
+            color: #adb5bd;
+        }
+        
+        .light-theme .xe-comment p {
+            color: #6c757d;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // CSS加载完成后显示页面
+    window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            document.documentElement.style.visibility = 'visible';
+        }, 50); // 短暂延迟确保样式已应用
+    });
+})();
+</script>
+<link rel="shortcut icon" href="./assets/favicon.png">
+<link rel="apple-touch-icon" href="./assets/app-ico.png">
+<link rel='stylesheet' id='font-awesome-css'  href='./assets/css/font-awesome.min.css?ver=4.7.0' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='./assets/css/bootstrap.css?ver=3.4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='nav-css'  href='./assets/css/nav.css?ver=2.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='ai-theme-css'  href='./assets/css/ai-theme.css?ver=1.0.0' type='text/css' media='all' />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script type='text/javascript' src='./assets/js/jquery-1.11.1.min.js'></script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?86cead3bcab6a1417189e6138d69262";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</head>
+<body class="page-body {{ if .Site.Params.darkmode.enable }}black{{ else }}white{{ end }}">
+    <div class="page-container">
+        <div class="sidebar-menu toggle-others fixed">
+            <div class="sidebar-menu-inner">
+                <header class="logo-env">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="index.html" class="logo-expanded">
+                            <img src="./assets/images/{{ if .Site.Params.darkmode.enable }}logo_dark@2x.png{{ else }}logo@2x.png{{ end }}" height="40" alt="" style="margin: 0 auto;" />
+                        </a>
+                        <a href="index.html" class="logo-collapsed">
+                            <img src="./assets/images/logo-collapsed@2x.png" height="40" alt="" style="margin: 0 auto;">
+                        </a>
+                    </div>
+                    <div class="mobile-menu-toggle visible-xs">
+                        <a href="#" data-toggle="mobile-menu">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </div>
+                </header>
+                <ul id="main-menu" class="main-menu">
+                    {{ range .Site.Data.webstack }}
+                    {{ if .list }}
+                        <li>
+                            <a>
+                               <i class="fa {{ .icon }} fa-fw"></i>
+                               <span class="title">{{ .taxonomy }}</span>
+                            </a>
+                            <ul>
+                                {{ range .list }}    
+                                <li>
+                                    <a href="#{{ md5 .term }}" class="smooth">{{ .term }}</a>
+                                </li>
+                                {{ end }}
+                            </ul>
+                        </li>
+                    {{ else }}
+                        <li>
+                            <a href="#{{ md5 .taxonomy }}" class="smooth">
+                               <i class="fa {{ .icon }} fa-fw"></i>
+                               <span class="title">{{ .taxonomy }}</span>
+                            </a>
+                        </li> 
+                    {{ end }}
+                    {{ end }}
+                    <li>
+                        <a href="./about">
+                            <i class="fa fa-heart fa-fw"></i>
+                            <span class="tooltip-blue">关于本站</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-content">
+<nav class="navbar user-info-navbar" role="navigation">
+    <div class="navbar-content">
+        <ul class="user-info-menu left-links list-inline list-unstyled">
+            <li class="hidden-xs">
+            <a href="#" data-toggle="sidebar"><i class="fa fa-bars"></i></a>
+            </li>
+      </ul>
+    </div>
+</nav>
+{{ template "search.html" . }}
+<div class="sites-list" style="margin-bottom: 8.5rem;">
+{{ range .Site.Data.webstack }}
+    {{ if .list }}
+        {{ range .list }}
+        <!-- {{ .term }} -->
+        <h4 class="text-gray" style="display: inline-block;"><i class="icon-io-tag" style="margin-right: 27px;" id="{{ md5 .term }}"></i>{{ .term }}</h4>
+            <div class="row">
+            {{ range .links }}
+                {{ if .qrcode }}
+                <div class="xe-card col-sm-4 col-md-3 qrcode">
+                    <a href="javascript:" target="" class="xe-widget xe-conversations box2 label-info" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<img src='{{ .qrcode }}' width='128'>">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="{{ .logo }}" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>{{ .title }}</strong>
+                                </div>
+                                <p class="overflowClip_2">{{ .description }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {{ else }}
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="{{ .url }}" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="{{ .logo }}" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>{{ .title }}</strong>
+                                </div>
+                                <p class="overflowClip_2">{{ .description }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {{ end }}
+            {{ end }}
+            </div>
+        <br />
+        <!--END {{ .term }} -->
+        {{ end }}
+    {{ else }}
+        <!-- {{ .taxonomy }} -->
+        <h4 class="text-gray" style="display: inline-block;"><i class="icon-io-tag" style="margin-right: 27px;" id="{{ md5 .taxonomy }}"></i>{{ .taxonomy }}</h4>
+            <div class="row">
+            {{ range .links }}
+                {{ if .qrcode }}
+                <div class="xe-card col-sm-4 col-md-3 qrcode">
+                    <a href="javascript:" target="" class="xe-widget xe-conversations box2 label-info" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<img src='{{ .qrcode }}' width='128'>">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="{{ .logo }}" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>{{ .title }}</strong>
+                                </div>
+                                <p class="overflowClip_2">{{ .description }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {{ else }}
+                <div class="xe-card col-sm-4 col-md-3 ">
+                    <a href="{{ .url }}" target="_blank" class="xe-widget xe-conversations box2 label-info">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/favicon.png" data-src="{{ .logo }}" onerror="javascript:this.src='./assets/images/favicon.png'" width="40">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1">
+                                    <strong>{{ .title }}</strong>
+                                </div>
+                                <p class="overflowClip_2">{{ .description }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {{ end }}
+            {{ end }}
+            </div>
+        <br />
+        <!--END {{ .taxonomy }} -->
+    {{ end }}
+{{ end }}
+</div>
+            <footer class="main-footer sticky footer-type-1">
+                <div class="go-up">
+                    <a href="#" rel="go-top">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+                <div class="footer-inner">
+                    <div class="footer-text">
+                        Copyright © {{ now.Format "2006"}} <a href=""><strong>{{ if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}iplaycode{{ end }}</strong></a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script type='text/javascript' src='./assets/js/bootstrap.min.js?ver=3.4.1'></script>
+    <script type='text/javascript' src='./assets/js/TweenMax.min.js?ver=1.13.1'></script>
+    <script type='text/javascript' src='./assets/js/perfect-scrollbar.min.js?ver=0.5.8'></script>
+    <script type='text/javascript' src='./assets/js/nav.js?ver=2.0.0'></script>
+    <script type='text/javascript' src='./assets/js/lazyload.min.js?ver=2.0.0'></script>
+    <script src="./assets/js/ai-theme.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(document).on('click', '.has-sub', function(){
+                var _this = $(this)
+                if(!$(this).hasClass('expanded')) {
+                   setTimeout(function(){
+                        _this.find('ul').attr("style","")
+                   }, 300);
+                  
+                } else {
+                    $('.has-sub ul').each(function(id,ele){
+                        var _that = $(this)
+                        if(_this.find('ul')[0] != ele) {
+                            setTimeout(function(){
+                                _that.attr("style","")
+                            }, 300);
+                        }
+                    })
+                }
+            })
+            $('.user-info-menu .hidden-xs').click(function(){
+                if($('.sidebar-menu').hasClass('collapsed')) {
+                    $('.has-sub.expanded > ul').attr("style","")
+                } else {
+                    $('.has-sub.expanded > ul').show()
+                }
+            })
+            $("#main-menu li ul li").click(function() {
+                $(this).siblings('li').removeClass('active'); // 删除其他兄弟元素的样式
+                $(this).addClass('active'); // 添加当前元素的样式
+            });
+            
+            // 修复：移除对lozad的引用
+            // const observer = lozad();
+            // observer.observe();
+            
+            return false;
+        });
+
+        // 已由ai-theme.js替换导航功能，移除旧代码
+        
+    </script>
+</body>
+</html>
