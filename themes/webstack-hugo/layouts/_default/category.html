@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>{{ .Title }} - {{ .Site.Title }} | 精选AI工具分类</title>
+<meta name="description" content="{{ .Title }}分类下的精选AI工具导航，包含多款优质{{ .Title }}工具和应用。">
+<meta name="keywords" content="{{ .Title }},AI工具,AI工具导航,AI应用,人工智能工具,AI软件">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:title" content="{{ .Title }} - {{ .Site.Title }} | 精选AI工具分类">
+<meta property="og:description" content="{{ .Title }}分类下的精选AI工具导航，包含多款优质{{ .Title }}工具和应用。">
+<meta property="og:image" content="{{ .Site.BaseURL }}assets/favicon.png">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<link rel="canonical" href="{{ .Permalink }}" />
+
+<!-- 预加载主题脚本 - 防止闪烁 -->
+<script>
+(function() {
+    // 临时隐藏页面，加载完毕后再显示
+    document.documentElement.style.visibility = 'hidden';
+    
+    // 在页面开始渲染前应用主题
+    var currentTheme = localStorage.getItem('theme') || 'light';
+    if (currentTheme === 'light') {
+        document.documentElement.classList.add('light-theme');
+    } else {
+        document.documentElement.classList.add('ai-theme');
+    }
+    
+    // CSS加载完成后显示页面
+    window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            document.documentElement.style.visibility = 'visible';
+        }, 50); // 短暂延迟确保样式已应用
+    });
+})();
+</script>
+
+<!-- 结构化数据 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "{{ .Title }} - {{ .Site.Title }}",
+  "description": "{{ .Title }}分类下的精选AI工具导航，包含多款优质{{ .Title }}工具和应用。",
+  "url": "{{ .Permalink }}",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "{{ .Site.Title }}",
+    "url": "{{ .Site.BaseURL }}"
+  }
+}
+</script>
+
+<link rel="shortcut icon" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/app-ico.png">
+<link rel='stylesheet' id='font-awesome-css'  href='/assets/css/font-awesome.min.css?ver=4.7.0' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='/assets/css/bootstrap.css?ver=3.4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='nav-css'  href='/assets/css/nav.css?ver=2.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='ai-theme-css'  href='/assets/css/ai-theme.css?ver=1.0.0' type='text/css' media='all' />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script type='text/javascript' src='/assets/js/jquery-1.11.1.min.js'></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C02RG4YM9R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C02RG4YM9R');
+</script>
+</head>
+<body class="page-body {{ if .Site.Params.darkmode.enable }}black{{ else }}white{{ end }}">
+    <div class="page-container">
+        <div class="sidebar-menu toggle-others fixed">
+            <div class="sidebar-menu-inner">
+                <header class="logo-env">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="/" class="logo-expanded">
+                            <img src="/assets/images/{{ if .Site.Params.darkmode.enable }}logo_dark@2x.png{{ else }}logo@2x.png{{ end }}" height="40" alt="" style="margin: 0 auto;" />
+                        </a>
+                        <a href="/" class="logo-collapsed">
+                            <img src="/assets/images/logo-collapsed@2x.png" height="40" alt="" style="margin: 0 auto;">
+                        </a>
+                    </div>
+                    <div class="mobile-menu-toggle visible-xs">
+                        <a href="#" data-toggle="mobile-menu">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </div>
+                </header>
+                <ul id="main-menu" class="main-menu">
+                    {{ range .Site.Data.webstack }}
+                    {{ if .list }}
+                        <li class="has-sub">
+                            <a href="javascript:void(0);">
+                               <i class="fa {{ .icon }} fa-fw"></i>
+                               <span class="title">{{ .taxonomy }}</span>
+                            </a>
+                            <ul>
+                                {{ range .list }}    
+                                <li>
+                                    <a href="/" data-anchor="{{ md5 .term }}" class="direct-link">{{ .term }}</a>
+                                </li>
+                                {{ end }}
+                            </ul>
+                        </li>
+                    {{ else }}
+                        <li>
+                            <a href="/" data-anchor="{{ md5 .taxonomy }}" class="direct-link">
+                               <i class="fa {{ .icon }} fa-fw"></i>
+                               <span class="title">{{ .taxonomy }}</span>
+                            </a>
+                        </li> 
+                    {{ end }}
+                    {{ end }}
+                    <li>
+                        <a href="{{ $.Site.BaseURL }}about">
+                            <i class="fa fa-heart fa-fw"></i>
+                            <span class="tooltip-blue">关于本站</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-content">
+            <nav class="navbar user-info-navbar" role="navigation">
+                <div class="navbar-content">
+                    <ul class="user-info-menu left-links list-inline list-unstyled">
+                        <li class="hidden-xs">
+                            <a href="#" data-toggle="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/" class="home-link">
+                                <i class="fa fa-home"></i> 返回首页
+                            </a>
+                        </li>
+                        <!-- 将主题切换按钮添加到左侧 -->
+                        <li>
+                            <a href="#" id="theme-toggle-btn" title="切换主题" style="display: flex !important; align-items: center !important; justify-content: center !important; width: 38px !important; height: 38px !important; border-radius: 50% !important; background: rgba(111, 66, 193, 0.1) !important;">
+                                <i class="fa fa-moon-o" id="theme-toggle-icon" style="font-size: 18px !important;"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            
+            <div class="category-detail-container">
+                <div class="category-header-large">
+                    <h1 class="category-title">{{ .Title }}</h1>
+                    <div class="category-description">
+                        <p>{{ .Title }}是人工智能应用的重要领域，这些工具能帮助用户提高效率、解决问题或创造内容。通过我们精心筛选的工具列表，您可以找到最适合自己需求的AI应用。</p>
+                        <p>随着技术的不断发展，我们会持续更新这个分类下的工具，确保为您提供最新、最有价值的AI工具信息。</p>
+                    </div>
+                </div>
+                
+                <div class="category-tools">
+                    <!-- 动态获取此分类的工具列表 -->
+                    <div class="row" itemscope itemtype="http://schema.org/ItemList">
+                        {{ $categoryName := .Title }}
+                        {{ $toolsFound := false }}
+                        
+                        <!-- 查找类别和工具 -->
+                        {{ range .Site.Data.webstack }}
+                            {{ if eq .taxonomy $categoryName }}
+                                {{ if .links }}
+                                    {{ range $index, $element := .links }}
+                                        {{ $toolsFound = true }}
+                                        <div class="xe-card col-sm-4 col-md-3" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                                            <a href="{{ .url }}" target="_blank" class="xe-widget xe-conversations box2 label-info" itemprop="url">
+                                                <meta itemprop="position" content="{{ add $index 1 }}">
+                                                <div class="xe-comment-entry">
+                                                    <div class="xe-user-img">
+                                                        <img class="img-circle lazy" src="/assets/images/favicon.png" data-src="{{ if strings.HasPrefix .logo "/" }}{{ .logo }}{{ else }}/{{ .logo }}{{ end }}" onerror="javascript:this.src='/assets/images/favicon.png'" width="40" itemprop="image">
+                                                    </div>
+                                                    <div class="xe-comment">
+                                                        <div class="xe-user-name overflowClip_1" itemprop="name">
+                                                            <strong>{{ .title }}</strong>
+                                                        </div>
+                                                        <p class="overflowClip_2" itemprop="description">{{ .description }}</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    {{ end }}
+                                {{ else if .list }}
+                                    {{ range .list }}
+                                        {{ if eq .term $categoryName }}
+                                            {{ range $index, $element := .links }}
+                                                {{ $toolsFound = true }}
+                                                <div class="xe-card col-sm-4 col-md-3" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                                                    <a href="{{ .url }}" target="_blank" class="xe-widget xe-conversations box2 label-info" itemprop="url">
+                                                        <meta itemprop="position" content="{{ add $index 1 }}">
+                                                        <div class="xe-comment-entry">
+                                                            <div class="xe-user-img">
+                                                                <img class="img-circle lazy" src="/assets/images/favicon.png" data-src="{{ if strings.HasPrefix .logo "/" }}{{ .logo }}{{ else }}/{{ .logo }}{{ end }}" onerror="javascript:this.src='/assets/images/favicon.png'" width="40" itemprop="image">
+                                                            </div>
+                                                            <div class="xe-comment">
+                                                                <div class="xe-user-name overflowClip_1" itemprop="name">
+                                                                    <strong>{{ .title }}</strong>
+                                                                </div>
+                                                                <p class="overflowClip_2" itemprop="description">{{ .description }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            {{ end }}
+                                        {{ end }}
+                                    {{ end }}
+                                {{ end }}
+                            {{ else }}
+                                {{ if .list }}
+                                    {{ range .list }}
+                                        {{ if eq .term $categoryName }}
+                                            {{ range $index, $element := .links }}
+                                                {{ $toolsFound = true }}
+                                                <div class="xe-card col-sm-4 col-md-3" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                                                    <a href="{{ .url }}" target="_blank" class="xe-widget xe-conversations box2 label-info" itemprop="url">
+                                                        <meta itemprop="position" content="{{ add $index 1 }}">
+                                                        <div class="xe-comment-entry">
+                                                            <div class="xe-user-img">
+                                                                <img class="img-circle lazy" src="/assets/images/favicon.png" data-src="{{ if strings.HasPrefix .logo "/" }}{{ .logo }}{{ else }}/{{ .logo }}{{ end }}" onerror="javascript:this.src='/assets/images/favicon.png'" width="40" itemprop="image">
+                                                            </div>
+                                                            <div class="xe-comment">
+                                                                <div class="xe-user-name overflowClip_1" itemprop="name">
+                                                                    <strong>{{ .title }}</strong>
+                                                                </div>
+                                                                <p class="overflowClip_2" itemprop="description">{{ .description }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            {{ end }}
+                                        {{ end }}
+                                    {{ end }}
+                                {{ end }}
+                            {{ end }}
+                        {{ end }}
+                        
+                        {{ if not $toolsFound }}
+                            <div class="no-tools-found">
+                                <p>暂无相关工具，请返回<a href="/">首页</a>查看其他分类。</p>
+                            </div>
+                        {{ end }}
+                    </div>
+                </div>
+                
+                <div class="related-categories">
+                    <h3>相关分类</h3>
+                    <div class="category-tags">
+                        {{ range .Site.Data.webstack }}
+                            {{ if ne .taxonomy $categoryName }}
+                                <a href="/categories/{{ .taxonomy | urlquery }}/" class="category-tag">{{ .taxonomy }}</a>
+                            {{ end }}
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+            
+            <footer class="main-footer sticky footer-type-1">
+                <div class="go-up">
+                    <a href="#" rel="go-top">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+                <div class="footer-inner">
+                    <div class="footer-text">
+                        <a href="https://www.aigc-fan.com/"><strong>{{ if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}aigc-fan.com{{ end }}</strong></a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script type='text/javascript' src='/assets/js/bootstrap.min.js?ver=3.4.1'></script>
+    <script type='text/javascript' src='/assets/js/TweenMax.min.js?ver=1.13.1'></script>
+    <script type='text/javascript' src='/assets/js/perfect-scrollbar.min.js?ver=0.5.8'></script>
+    <script type='text/javascript' src='/assets/js/lazyload.min.js?ver=2.0.0'></script>
+    <script src="/assets/js/ai-theme.js"></script>
+    <script type='text/javascript' src='/assets/js/nav.js'></script>
+    <script type='text/javascript' src='/assets/js/url-handler.js'></script>
+    <script type='text/javascript' src='/assets/js/url-debug.js'></script>
+    <script type="text/javascript">
+        // 调试日志函数
+        function debug(message) {
+            console.log('[分类页] ' + message);
+        }
+        
+        // 输出初始环境信息
+        debug('页面加载: ' + window.location.pathname);
+        debug('浏览器: ' + navigator.userAgent);
+        
+        // 保存当前主题
+        function getCurrentTheme() {
+            // 优先使用localStorage中保存的设置
+            var savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                return savedTheme;
+            }
+            
+            // 回退到检查当前页面主题类
+            if (document.documentElement.classList.contains('light-theme') || 
+                document.body.classList.contains('light-theme')) {
+                return 'light';
+            } else {
+                return 'dark';
+            }
+        }
+        
+        $(document).ready(function() {
+            debug('文档已就绪');
+            var currentTheme = getCurrentTheme();
+            debug('当前主题: ' + currentTheme);
+            
+            // 处理直接跳转链接
+            $('.direct-link').on('click', function(e) {
+                e.preventDefault();
+                
+                // 获取当前主题和锚点
+                var currentTheme = getCurrentTheme();
+                var anchor = $(this).data('anchor');
+                
+                debug('点击链接: ' + $(this).text());
+                debug('跳转到首页: 主题=' + currentTheme + ', 锚点=' + anchor);
+                
+                // 保存到本地存储
+                localStorage.setItem('theme', currentTheme);
+                localStorage.setItem('targetAnchor', anchor);
+                debug('已保存到localStorage');
+                
+                // 简单跳转到首页
+                debug('即将跳转到首页...');
+                window.location.href = '/';
+            });
+            
+            // 处理URL参数中的主题设置
+            function applyThemeFromUrl() {
+                var urlParams = new URLSearchParams(window.location.search);
+                var themeParam = urlParams.get('theme');
+                
+                if (themeParam === 'light') {
+                    // 确保应用亮色主题
+                    document.documentElement.classList.add('light-theme');
+                    document.body.classList.add('light-theme');
+                    document.documentElement.classList.remove('ai-theme');
+                    document.body.classList.remove('ai-theme');
+                    
+                    // 存储主题设置
+                    localStorage.setItem('theme', 'light');
+                } else if (themeParam === 'dark') {
+                    // 确保应用暗色主题
+                    document.documentElement.classList.add('ai-theme');
+                    document.body.classList.add('ai-theme');
+                    document.documentElement.classList.remove('light-theme');
+                    document.body.classList.remove('light-theme');
+                    
+                    // 存储主题设置
+                    localStorage.setItem('theme', 'dark');
+                }
+            }
+            
+            // 应用URL中的主题设置
+            applyThemeFromUrl();
+            
+            // 处理锚点滚动
+            function handleAnchorScroll() {
+                // 检查URL中是否有锚点
+                if (window.location.hash) {
+                    var hash = window.location.hash.substring(1);
+                    var element = document.getElementById(hash);
+                    
+                    if (element) {
+                        // 等待一小段时间确保页面完全加载
+                        setTimeout(function() {
+                            // 平滑滚动到元素
+                            element.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }, 500);
+                    }
+                }
+                
+                // 检查会话存储中是否有保存的锚点信息
+                var savedAnchor = sessionStorage.getItem('scrollToAnchor');
+                if (savedAnchor) {
+                    var element = document.getElementById(savedAnchor);
+                    
+                    if (element) {
+                        // 等待一小段时间确保页面完全加载
+                        setTimeout(function() {
+                            // 平滑滚动到元素
+                            element.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                            
+                            // 清除会话存储中的锚点信息
+                            sessionStorage.removeItem('scrollToAnchor');
+                        }, 500);
+                    } else {
+                        sessionStorage.removeItem('scrollToAnchor');
+                    }
+                }
+            }
+            
+            // 页面加载完成后处理锚点滚动
+            handleAnchorScroll();
+            
+            // 加载图片
+            var lazyLoadInstance = new LazyLoad({
+                elements_selector: ".lazy"
+            });
+            
+            // 返回顶部
+            $('.go-up a').click(function() {
+                $('html, body').animate({ scrollTop: 0 }, 300);
+                return false;
+            });
+            
+            // 设置侧边栏菜单
+            if (typeof setup_sidebar_menu !== 'undefined') {
+                setup_sidebar_menu();
+            } else {
+                console.error('setup_sidebar_menu函数未定义');
+            }
+            
+            // 父级菜单点击事件 - 阻止默认行为以使其能展开子菜单
+            $('.has-sub > a').on('click', function(e) {
+                e.preventDefault();
+                var $li = $(this).parent('li');
+                if($li.hasClass('expanded')) {
+                    $li.removeClass('expanded');
+                } else {
+                    $li.addClass('expanded');
+                }
+                return false;
+            });
+        });
+    </script>
+
+    <!-- 主题切换脚本 -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 应用主题
+        let currentTheme = localStorage.getItem('theme') || 'light';
+        
+        if (currentTheme === 'light') {
+            document.documentElement.classList.remove('ai-theme');
+            document.documentElement.classList.add('light-theme');
+            document.body.classList.remove('ai-theme');
+            document.body.classList.add('light-theme');
+        } else {
+            document.documentElement.classList.remove('light-theme');
+            document.documentElement.classList.add('ai-theme');
+            document.body.classList.remove('light-theme');
+            document.body.classList.add('ai-theme');
+        }
+        
+        // 更新主题切换按钮图标
+        function updateThemeToggleIcon() {
+            const toggleIcon = document.getElementById('theme-toggle-icon');
+            if (!toggleIcon) return;
+            
+            if (currentTheme === 'light') {
+                toggleIcon.classList.remove('fa-sun-o');
+                toggleIcon.classList.add('fa-moon-o');
+                toggleIcon.setAttribute('title', '切换到暗色模式');
+            } else {
+                toggleIcon.classList.remove('fa-moon-o');
+                toggleIcon.classList.add('fa-sun-o');
+                toggleIcon.setAttribute('title', '切换到亮色模式');
+            }
+        }
+        
+        // 初始化更新图标
+        updateThemeToggleIcon();
+        
+        // 添加主题切换按钮点击事件
+        const toggleBtn = document.getElementById('theme-toggle-btn');
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // 切换主题
+                currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                // 保存新主题
+                localStorage.setItem('theme', currentTheme);
+                
+                // 应用新主题
+                if (currentTheme === 'light') {
+                    document.documentElement.classList.remove('ai-theme');
+                    document.documentElement.classList.add('light-theme');
+                    document.body.classList.remove('ai-theme');
+                    document.body.classList.add('light-theme');
+                } else {
+                    document.documentElement.classList.remove('light-theme');
+                    document.documentElement.classList.add('ai-theme');
+                    document.body.classList.remove('light-theme');
+                    document.body.classList.add('ai-theme');
+                }
+                
+                // 更新图标
+                updateThemeToggleIcon();
+            });
+        }
+    });
+    </script>
+</body>
+</html>

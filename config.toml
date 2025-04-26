@@ -1,0 +1,35 @@
+baseURL = "https://www.aigc-fan.com/"
+languageCode = "zh-CN"
+title = "AigcFan - 专业AI工具导航平台 | 发现最优质人工智能应用"
+theme = "webstack-hugo"
+preserveTaxonomyNames = true
+disablePathToLower = true
+hasCJKLanguage = true
+copyright = "© 2025 aigc-fan.com 版权所有"
+enableRobotsTXT = true  # 启用robots.txt
+
+# 添加分类页面支持
+[taxonomies]
+  category = "categories"
+
+# 添加此项修复中文URL问题
+urlPathSeparator = "-"
+# 确保使用正确的URL编码
+removePathAccents = true
+
+[outputs]
+home = ["HTML", "RSS", "JSON", "Sitemap"]
+
+[sitemap]
+changefreq = "weekly"
+priority = 0.5
+filename = "sitemap.xml"
+
+[params]
+  author = "AigcFan"
+  description = "AigcFan专业AI工具导航平台 - 精选全球顶级人工智能工具，涵盖聊天、绘画、写作、音频、视频等多个领域。助您快速发现实用AI应用，提升工作效率，释放创意潜能。"
+  keywords = "AI工具,人工智能,AI导航,ChatGPT,绘画AI,写作AI,AI助手,AIGC,AI应用,AI软件,国内AI工具,智能工具"
+[params.search]
+  enable = true
+[params.darkmode]
+  enable = false

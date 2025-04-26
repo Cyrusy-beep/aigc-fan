@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>{{ .Title }} - {{ .Site.Title }}</title>
+<meta name="theme-color" content="#151c2c" />
+<meta name="keywords" content="AI工具导航,人工智能工具,{{ .Title }},AIGC,AI工具集合,AI应用">
+<meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}，包括AI绘画、AI写作、AI视频、AI音乐、AI办公等多种实用工具。{{ end }}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}">
+<meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta property="og:image" content="{{ .Site.BaseURL }}assets/favicon.png">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<link rel="canonical" href="{{ .Permalink }}" />
+<!-- 资源预加载 -->
+<link rel="preload" href="../assets/css/font-awesome.min.css" as="style">
+<link rel="preload" href="../assets/css/bootstrap.css" as="style">
+<link rel="preload" href="../assets/css/nav.css" as="style">
+<link rel="preload" href="../assets/css/ai-theme.css" as="style">
+<link rel="preload" href="../assets/js/jquery-1.11.1.min.js" as="script">
+<!-- 预加载主题脚本 - 防止闪烁 -->
+<script>
+(function() {
+    // 临时隐藏页面，加载完毕后再显示
+    document.documentElement.style.visibility = 'hidden';
+    
+    // 在页面开始渲染前应用主题
+    var currentTheme = localStorage.getItem('theme') || 'light';
+    if (currentTheme === 'light') {
+        document.documentElement.classList.add('light-theme');
+    } else {
+        document.documentElement.classList.add('ai-theme');
+    }
+    
+    // CSS加载完成后显示页面
+    window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            document.documentElement.style.visibility = 'visible';
+        }, 50); // 短暂延迟确保样式已应用
+    });
+})();
+</script>
+
+<!-- 结构化数据帮助搜索引擎理解网站内容 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ .Title }}",
+  "url": "{{ .Permalink }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ .Permalink }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ .Site.Title }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ .Site.BaseURL }}assets/favicon.png"
+    }
+  },
+  "description": "{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}"
+}
+</script>
+
+{{ if eq .RelPermalink "/about/" }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "关于AigcFan AI工具导航",
+  "url": "{{ .Permalink }}",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "{{ .Site.Title }}",
+    "url": "{{ .Site.BaseURL }}",
+    "logo": "{{ .Site.BaseURL }}assets/favicon.png",
+    "description": "{{ .Description }}",
+    "sameAs": [
+      "https://github.com/Cyrusy-beep/aigc-fan"
+    ]
+  }
+}
+</script>
+{{ end }}
+
+<link rel="shortcut icon" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/app-ico.png">
+<link rel='stylesheet' id='font-awesome-css'  href='../assets/css/font-awesome.min.css?ver=4.7.0' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='../assets/css/bootstrap.css?ver=3.4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='nav-css'  href='../assets/css/nav.css?ver=2.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='ai-theme-css'  href='../assets/css/ai-theme.css?ver=1.0.0' type='text/css' media='all' />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script type='text/javascript' src='../assets/js/jquery-1.11.1.min.js'></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C02RG4YM9R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C02RG4YM9R');
+</script>
+</head>
+<body class="page-body">
+    <div class="page-container">
+        <div class="sidebar-menu toggle-others fixed">
+            <div class="sidebar-menu-inner">
+                <header class="logo-env">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="../index.html" class="logo-expanded">
+                            <img src="../assets/images/{{ if .Site.Params.darkmode.enable }}logo_dark@2x.png{{ else }}logo@2x.png{{ end }}" height="40" alt="" style="margin: 0 auto;" />
+                        </a>
+                        <a href="../index.html" class="logo-collapsed">
+                            <img src="../assets/images/logo-collapsed@2x.png" height="40" alt="" style="margin: 0 auto;">
+                        </a>
+                    </div>
+                    <div class="mobile-menu-toggle visible-xs">
+                        <a href="#" data-toggle="mobile-menu">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </div>
+                </header>
+                <ul id="main-menu" class="main-menu">
+                    {{ range .Site.Data.webstack }}
+                    {{ if .list }}
+                        <li>
+                            <a>
+                               <i class="fa {{ .icon }} fa-fw"></i>
+                               <span class="title">{{ .taxonomy }}</span>
+                            </a>
+                            <ul>
+                                {{ range .list }}    
+                                <li>
+                                    <a href="../#{{ md5 .term }}" class="smooth">{{ .term }}</a>
+                                </li>
+                                {{ end }}
+                            </ul>
+                        </li>
+                    {{ else }}
+                        <li>
+                            <a href="../#{{ md5 .taxonomy }}" class="smooth">
+                               <i class="fa {{ .icon }} fa-fw"></i>
+                               <span class="title">{{ .taxonomy }}</span>
+                            </a>
+                        </li> 
+                    {{ end }}
+                    {{ end }}
+                    <li class="active">
+                        <a href="../about">
+                            <i class="fa fa-heart fa-fw"></i>
+                            <span class="tooltip-blue">关于本站</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-content page">
+            <nav class="navbar user-info-navbar" role="navigation">
+                <div class="navbar-content">
+                    <ul class="user-info-menu left-links list-inline list-unstyled">
+                        <li class="hidden-xs">
+                            <a href="#" data-toggle="sidebar"><i class="fa fa-bars"></i></a>
+                        </li>
+                        <li>
+                            <a href="#" id="theme-toggle-btn" title="切换主题" style="display: flex !important; align-items: center !important; justify-content: center !important; width: 38px !important; height: 38px !important; border-radius: 50% !important; background: rgba(111, 66, 193, 0.1) !important;">
+                                <i class="fa fa-moon-o" id="theme-toggle-icon" style="font-size: 18px !important;"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="container" style="margin-top: 80px;">
+                <div class="row">
+                    <div class="col-12 mx-auto">
+                        <div class="panel panel-default">
+                            <h1 class="h2">{{ .Title }}</h1>
+                            <div class="panel-body mt-2">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        {{ .Content }}
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="main-footer sticky footer-type-1">
+                <div class="go-up">
+                    <a href="#" rel="go-top">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+                <div class="footer-inner">
+                    <div class="footer-text">
+                        <a href="https://www.aigc-fan.com/"><strong>{{ if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}aigc-fan.com{{ end }}</strong></a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+<script type='text/javascript' src='../assets/js/bootstrap.min.js?ver=3.4.1'></script>
+<script type='text/javascript' src='../assets/js/TweenMax.min.js?ver=1.13.1'></script>
+<script type='text/javascript' src='../assets/js/perfect-scrollbar.min.js?ver=0.5.8'></script>
+<script type='text/javascript' src='../assets/js/nav.js?ver=2.0.0'></script>
+<script type='text/javascript' src='../assets/js/lazyload.min.js?ver=2.0.0'></script>
+
+<!-- 主题切换脚本 -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 应用主题
+    let currentTheme = localStorage.getItem('theme') || 'light';
+    
+    if (currentTheme === 'light') {
+        document.documentElement.classList.remove('ai-theme');
+        document.documentElement.classList.add('light-theme');
+        document.body.classList.remove('ai-theme');
+        document.body.classList.add('light-theme');
+    } else {
+        document.documentElement.classList.remove('light-theme');
+        document.documentElement.classList.add('ai-theme');
+        document.body.classList.remove('light-theme');
+        document.body.classList.add('ai-theme');
+    }
+    
+    // 更新主题切换按钮图标
+    function updateThemeToggleIcon() {
+        const toggleIcon = document.getElementById('theme-toggle-icon');
+        if (!toggleIcon) return;
+        
+        if (currentTheme === 'light') {
+            toggleIcon.classList.remove('fa-sun-o');
+            toggleIcon.classList.add('fa-moon-o');
+            toggleIcon.setAttribute('title', '切换到暗色模式');
+        } else {
+            toggleIcon.classList.remove('fa-moon-o');
+            toggleIcon.classList.add('fa-sun-o');
+            toggleIcon.setAttribute('title', '切换到亮色模式');
+        }
+    }
+    
+    // 初始化更新图标
+    updateThemeToggleIcon();
+    
+    // 添加主题切换按钮点击事件
+    const toggleBtn = document.getElementById('theme-toggle-btn');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // 切换主题
+            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            // 保存新主题
+            localStorage.setItem('theme', currentTheme);
+            
+            // 应用新主题
+            if (currentTheme === 'light') {
+                document.documentElement.classList.remove('ai-theme');
+                document.documentElement.classList.add('light-theme');
+                document.body.classList.remove('ai-theme');
+                document.body.classList.add('light-theme');
+            } else {
+                document.documentElement.classList.remove('light-theme');
+                document.documentElement.classList.add('ai-theme');
+                document.body.classList.remove('light-theme');
+                document.body.classList.add('ai-theme');
+            }
+            
+            // 更新图标
+            updateThemeToggleIcon();
+        });
+    }
+});
+</script>
+</body>
+</html>

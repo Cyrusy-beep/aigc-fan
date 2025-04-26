@@ -1,0 +1,106 @@
+/* 卡片悬停效果 - 显示完整描述内容 */
+
+/* 卡片容器相对定位 */
+.xe-card {
+  position: relative;
+}
+
+/* 悬浮窗样式 */
+.card-tooltip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  z-index: 1000; /* 确保在最上层 */
+  width: 300px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  pointer-events: none; /* 防止悬浮窗干扰鼠标事件 */
+  left: 50%;
+  bottom: 100%;
+  transform: translateX(-50%) translateY(-10px);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* 添加小三角形 */
+.card-tooltip:after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+}
+
+/* 鼠标悬停时显示悬浮窗 */
+.xe-card:hover .card-tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* 标题样式 */
+.card-tooltip-title {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid;
+  padding-bottom: 5px;
+}
+
+/* 暗色主题样式 */
+.ai-theme .card-tooltip {
+  background: linear-gradient(145deg, #1e2538, #252d44);
+  border: 1px solid var(--ai-accent);
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(111, 66, 193, 0.3), 0 0 30px rgba(0, 212, 255, 0.1);
+}
+
+.ai-theme .card-tooltip:after {
+  border-top: 8px solid var(--ai-accent);
+}
+
+.ai-theme .card-tooltip-title {
+  color: var(--ai-accent);
+  border-bottom-color: rgba(0, 212, 255, 0.3);
+}
+
+/* 亮色主题样式 */
+.light-theme .card-tooltip {
+  background: #ffffff;
+  border: 1px solid var(--ai-light-accent);
+  color: #2c3e50;
+  box-shadow: 0 10px 25px rgba(111, 66, 193, 0.15);
+}
+
+.light-theme .card-tooltip:after {
+  border-top: 8px solid var(--ai-light-accent);
+}
+
+.light-theme .card-tooltip-title {
+  color: var(--ai-light-primary);
+  border-bottom-color: rgba(111, 66, 193, 0.2);
+}
+
+/* 动画效果 */
+@keyframes tooltip-glow {
+  0% {
+    box-shadow: 0 0 10px rgba(111, 66, 193, 0.3), 0 0 20px rgba(0, 212, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(111, 66, 193, 0.4), 0 0 30px rgba(0, 212, 255, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(111, 66, 193, 0.3), 0 0 20px rgba(0, 212, 255, 0.1);
+  }
+}
+
+.ai-theme .card-tooltip {
+  animation: tooltip-glow 3s infinite;
+} 

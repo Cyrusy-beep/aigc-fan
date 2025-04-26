@@ -1,0 +1,37 @@
+# 设置默认字符集为UTF-8
+AddDefaultCharset UTF-8
+
+# 允许中文和特殊字符的URL
+Options -MultiViews
+RewriteEngine On
+
+# 处理中文URL编码问题
+<IfModule mod_rewrite.c>
+  # 确保正确处理中文编码
+  RewriteBase /
+  
+  # 特别处理阅读AI的重定向
+  RewriteCond %{REQUEST_URI} ^/categories/阅读ai/?$ [NC,OR]
+  RewriteCond %{REQUEST_URI} ^/categories/%E9%98%85%E8%AF%BBai/?$ [NC]
+  RewriteRule .* /categories/%E9%98%85%E8%AF%BBAI/ [R=301,L]
+  
+  # 处理其他中文分类URL
+  RewriteCond %{REQUEST_URI} ^/categories/(.*)$ 
+  RewriteCond %{REQUEST_URI} !^/categories/%E9%98%85%E8%AF%BBAI/?$
+  RewriteRule .* /categories/%1 [NE,R=302]
+  
+  # 处理404错误页面
+  ErrorDocument 404 /404.html
+</IfModule>
+
+# 设置文件类型和编码
+<IfModule mod_mime.c>
+  AddCharset UTF-8 .html .css .js .xml .json .rss
+</IfModule>
+
+# 启用CORS
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|xml|json|css|js|png|jpg|jpeg|gif|svg)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule> 

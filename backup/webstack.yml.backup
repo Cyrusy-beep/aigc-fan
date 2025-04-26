@@ -1,0 +1,378 @@
+---
+
+- taxonomy: AI必备工具
+  icon: fa-star
+  links: 
+    - title: ChatGPT
+      logo: assets/images/logos/chatgpt.png
+      url: https://chat.openai.com/
+      description: OpenAI开发的对话式大型语言模型，能回答问题、写作、编程等
+    - title: Claude
+      logo: assets/images/logos/claude.png
+      url: https://claude.ai/
+      description: Anthropic的AI助手，擅长长文档处理和复杂推理
+    - title: Midjourney
+      logo: assets/images/logos/midjourney.png
+      url: https://www.midjourney.com/
+      description: 强大的AI绘画工具，通过文本指令生成精美图像
+    - title: DALL-E 3
+      logo: assets/images/logos/dalle.png
+      url: https://openai.com/dall-e-3
+      description: OpenAI的图像生成模型，能将文本描述转换为详细图像
+    - title: Gemini
+      logo: assets/images/logos/gemini.png
+      url: https://gemini.google.com/
+      description: Google的大语言模型，支持文本、图像等多模态交互
+    - title: Copilot
+      logo: assets/images/logos/copilot.png
+      url: https://github.com/features/copilot
+      description: GitHub的AI编程助手，提供实时代码建议和自动补全
+    - title: Runway
+      logo: assets/images/logos/runway.png
+      url: https://runwayml.com/
+      description: AI视频生成和编辑工具，可创建和编辑视频内容
+    - title: Synthesia
+      logo: assets/images/logos/synthesia.png
+      url: https://www.synthesia.io/
+      description: AI视频制作平台，可从文本创建逼真的AI视频
+    - title: Jasper
+      logo: assets/images/logos/jasper.png
+      url: https://www.jasper.ai/
+      description: AI写作助手，帮助创建营销文案和内容
+
+- taxonomy: AI文本和写作
+  icon: fa-pencil
+  links: 
+    - title: Notion AI
+      logo: assets/images/logos/notion.png
+      url: https://www.notion.so/product/ai
+      description: Notion集成的AI写作助手，提供内容创建和编辑功能
+    - title: Copy.ai
+      logo: assets/images/logos/copyai.png
+      url: https://www.copy.ai/
+      description: AI营销文案和内容生成工具
+    - title: Grammarly
+      logo: assets/images/logos/grammarly.png
+      url: https://www.grammarly.com/
+      description: AI写作助手，提供语法检查和写作改进建议
+    - title: Writesonic
+      logo: assets/images/logos/writesonic.png
+      url: https://writesonic.com/
+      description: AI内容创作平台，可生成各种类型的营销和创意内容
+    - title: QuillBot
+      logo: assets/images/logos/quillbot.png
+      url: https://quillbot.com/
+      description: AI改写和摘要工具，帮助优化文本表达
+    - title: Rytr
+      logo: assets/images/logos/rytr.png
+      url: https://rytr.me/
+      description: AI写作平台，帮助创建博客、邮件和社交媒体内容
+    - title: Perplexity AI
+      logo: assets/images/logos/perplexity.png
+      url: https://www.perplexity.ai/
+      description: AI搜索引擎，提供详细的问题回答和信息汇总
+    - title: DeepL
+      logo: assets/images/logos/deepl.png
+      url: https://www.deepl.com/
+      description: AI翻译工具，提供高质量的多语言翻译
+
+- taxonomy: AI图像创作
+  icon: fa-image
+  list: 
+    - term: 图像生成
+      links:
+        - title: Stable Diffusion
+          logo: assets/images/logos/stablediffusion.png
+          url: https://stability.ai/
+          description: 开源AI图像生成模型，可通过文本提示创建详细图像
+        - title: Leonardo.ai
+          logo: assets/images/logos/leonardo.png
+          url: https://leonardo.ai/
+          description: AI创意设计工具，专为创作者和设计师打造
+        - title: Playground AI
+          logo: assets/images/logos/playgroundai.png
+          url: https://playgroundai.com/
+          description: 用户友好的AI图像生成平台
+        - title: Firefly
+          logo: assets/images/logos/firefly.png
+          url: https://firefly.adobe.com/
+          description: Adobe的AI图像生成工具，集成于Creative Cloud
+        - title: Craiyon
+          logo: assets/images/logos/craiyon.png
+          url: https://www.craiyon.com/
+          description: 免费AI图像生成工具，前身为DALL-E mini
+        - title: Bing Image Creator
+          logo: assets/images/logos/bingimage.png
+          url: https://www.bing.com/create
+          description: 微软基于DALL-E的免费图像生成工具
+      
+    - term: 图像编辑
+      links:
+        - title: Canva AI
+          logo: assets/images/logos/canva.png
+          url: https://www.canva.com/ai-image-generator/
+          description: Canva的AI图像生成和编辑功能
+        - title: Fotor
+          logo: assets/images/logos/fotor.png
+          url: https://www.fotor.com/
+          description: 在线照片编辑器，提供AI增强功能
+        - title: Remove.bg
+          logo: assets/images/logos/removebg.png
+          url: https://www.remove.bg/
+          description: AI自动移除图片背景工具
+        - title: Let's Enhance
+          logo: assets/images/logos/letsenhance.png
+          url: https://letsenhance.io/
+          description: AI图像放大和质量提升工具
+        - title: Artbreeder
+          logo: assets/images/logos/artbreeder.png
+          url: https://www.artbreeder.com/
+          description: AI艺术创作平台，可混合和探索图像
+      
+    - term: 人像和头像
+      links:
+        - title: Lensa
+          logo: assets/images/logos/lensa.png
+          url: https://prisma-ai.com/lensa
+          description: AI照片编辑应用，以其魔法头像功能闻名
+        - title: Profile Picture AI
+          logo: assets/images/logos/profilepicture.png
+          url: https://www.profilepicture.ai/
+          description: 使用AI生成专业头像照片
+        - title: Ready Player Me
+          logo: assets/images/logos/readyplayerme.png
+          url: https://readyplayer.me/
+          description: 创建3D虚拟化身用于游戏和虚拟世界
+        - title: MyHeritage
+          logo: assets/images/logos/myheritage.png
+          url: https://www.myheritage.com/deep-nostalgia
+          description: Deep Nostalgia技术，让老照片中的人物动起来
+
+- taxonomy: AI视频制作
+  icon: fa-video-camera
+  links:
+    - title: Runway Gen-2
+      logo: assets/images/logos/runwaygen.png
+      url: https://research.runwayml.com/gen2
+      description: 新一代AI视频生成技术，可从文本和图像创建视频
+    - title: HeyGen
+      logo: assets/images/logos/heygen.png
+      url: https://www.heygen.com/
+      description: AI视频生成平台，可创建逼真的数字人视频
+    - title: D-ID
+      logo: assets/images/logos/did.png
+      url: https://www.d-id.com/
+      description: 数字人视频生成，让静态图像说话
+    - title: Descript
+      logo: assets/images/logos/descript.png
+      url: https://www.descript.com/
+      description: AI视频编辑工具，提供文本编辑视频功能
+    - title: Kapwing
+      logo: assets/images/logos/kapwing.png
+      url: https://www.kapwing.com/
+      description: 在线视频编辑器，集成AI功能
+    - title: Fliki
+      logo: assets/images/logos/fliki.png
+      url: https://fliki.ai/
+      description: 文本转视频工具，自动配音和生成
+    - title: Pictory
+      logo: assets/images/logos/pictory.png
+      url: https://pictory.ai/
+      description: 从长文本内容自动创建短视频
+    - title: Synthesia
+      logo: assets/images/logos/synthesia.png
+      url: https://www.synthesia.io/
+      description: 使用AI虚拟人创建专业视频
+
+- taxonomy: AI音频和音乐
+  icon: fa-music
+  list:
+    - term: 语音合成
+      links:
+        - title: ElevenLabs
+          logo: assets/images/logos/elevenlabs.png
+          url: https://elevenlabs.io/
+          description: AI语音合成技术，可创建逼真的人声
+        - title: Play.ht
+          logo: assets/images/logos/playht.png
+          url: https://play.ht/
+          description: 文本转语音生成器，提供自然的AI声音
+        - title: Resemble.ai
+          logo: assets/images/logos/resemble.png
+          url: https://www.resemble.ai/
+          description: AI语音克隆和语音生成平台
+        - title: Murf
+          logo: assets/images/logos/murf.png
+          url: https://murf.ai/
+          description: AI语音生成器，适用于视频配音和演示
+        - title: Speechify
+          logo: assets/images/logos/speechify.png
+          url: https://speechify.com/
+          description: 文本转语音应用，可朗读任何文本
+    
+    - term: 音乐创作
+      links:
+        - title: Suno
+          logo: assets/images/logos/suno.png
+          url: https://www.suno.ai/
+          description: AI音乐生成工具，可通过文本描述创作歌曲
+        - title: Soundraw
+          logo: assets/images/logos/soundraw.png
+          url: https://soundraw.io/
+          description: AI作曲工具，为创作者生成免版权音乐
+        - title: AIVA
+          logo: assets/images/logos/aiva.png
+          url: https://www.aiva.ai/
+          description: AI作曲助手，可创作情感音乐
+        - title: Beatoven.ai
+          logo: assets/images/logos/beatoven.png
+          url: https://www.beatoven.ai/
+          description: 创建适合视频和播客的自定义AI音乐
+        - title: Boomy
+          logo: assets/images/logos/boomy.png
+          url: https://boomy.com/
+          description: 在几秒钟内创建原创AI生成的歌曲
+
+- taxonomy: AI开发工具
+  icon: fa-code
+  links:
+    - title: GitHub Copilot
+      logo: assets/images/logos/githubcopilot.png
+      url: https://github.com/features/copilot
+      description: AI代码助手，提供实时编程建议
+    - title: Replit
+      logo: assets/images/logos/replit.png
+      url: https://replit.com/
+      description: 在线代码编辑器和开发环境，集成AI功能
+    - title: Tabnine
+      logo: assets/images/logos/tabnine.png
+      url: https://www.tabnine.com/
+      description: AI代码补全工具，支持多种编程语言
+    - title: CodeWhisperer
+      logo: assets/images/logos/codewhisperer.png
+      url: https://aws.amazon.com/codewhisperer/
+      description: 亚马逊的AI编程助手，类似Copilot
+    - title: Cursor
+      logo: assets/images/logos/cursor.png
+      url: https://cursor.so/
+      description: 集成AI的代码编辑器，帮助编写和理解代码
+    - title: Codeium
+      logo: assets/images/logos/codeium.png
+      url: https://codeium.com/
+      description: 免费AI代码补全工具，兼容各种IDE
+    - title: Warp
+      logo: assets/images/logos/warp.png
+      url: https://www.warp.dev/
+      description: 现代终端应用，集成AI辅助功能
+    - title: CodeGPT
+      logo: assets/images/logos/codegpt.png
+      url: https://codegpt.co/
+      description: VSCode插件，在编辑器中集成AI编程助手
+
+- taxonomy: AI生产力工具
+  icon: fa-briefcase
+  links:
+    - title: Notion AI
+      logo: assets/images/logos/notion.png
+      url: https://www.notion.so/product/ai
+      description: 集成在Notion中的AI助手，提高笔记和文档效率
+    - title: Mem
+      logo: assets/images/logos/mem.png
+      url: https://mem.ai/
+      description: AI驱动的个人知识库和笔记工具
+    - title: Otter.ai
+      logo: assets/images/logos/otter.png
+      url: https://otter.ai/
+      description: AI会议记录和语音转文字工具
+    - title: Taskade
+      logo: assets/images/logos/taskade.png
+      url: https://www.taskade.com/
+      description: AI驱动的项目管理和协作工具
+    - title: Zapier AI
+      logo: assets/images/logos/zapier.png
+      url: https://zapier.com/ai
+      description: 自动化工作流工具中的AI助手
+    - title: Make
+      logo: assets/images/logos/make.png
+      url: https://www.make.com/
+      description: 可视化工作流自动化平台
+    - title: Beautiful.ai
+      logo: assets/images/logos/beautifulai.png
+      url: https://www.beautiful.ai/
+      description: AI演示文稿创建工具，自动设计精美幻灯片
+    - title: Gamma
+      logo: assets/images/logos/gamma.png
+      url: https://gamma.app/
+      description: AI驱动的演示和文档创建工具
+
+- taxonomy: 大语言模型
+  icon: fa-comment
+  links:
+    - title: ChatGPT
+      logo: assets/images/logos/chatgpt.png
+      url: https://chat.openai.com/
+      description: OpenAI的对话式大型语言模型
+    - title: Claude
+      logo: assets/images/logos/claude.png
+      url: https://claude.ai/
+      description: Anthropic的AI助手，注重理解和安全
+    - title: Gemini
+      logo: assets/images/logos/gemini.png
+      url: https://gemini.google.com/
+      description: Google的多模态大语言模型
+    - title: Perplexity
+      logo: assets/images/logos/perplexity.png
+      url: https://www.perplexity.ai/
+      description: AI搜索引擎，提供有来源引用的回答
+    - title: Llama 3
+      logo: assets/images/logos/llama.png
+      url: https://llama.meta.com/
+      description: Meta的开源大语言模型，提供多种尺寸版本
+    - title: MistralAI
+      logo: assets/images/logos/mistral.png
+      url: https://mistral.ai/
+      description: 开放高效的大语言模型，各种规模选择
+    - title: Cohere
+      logo: assets/images/logos/cohere.png
+      url: https://cohere.com/
+      description: 专注于企业的对话和生成式AI解决方案
+    - title: Yi
+      logo: assets/images/logos/yi.png
+      url: https://01.ai/
+      description: 01.AI开发的开源大语言模型
+
+- taxonomy: AI学习资源
+  icon: fa-graduation-cap
+  links:
+    - title: Fast.ai
+      logo: assets/images/logos/fastai.png
+      url: https://www.fast.ai/
+      description: 免费实用的深度学习课程和资源
+    - title: Hugging Face
+      logo: assets/images/logos/huggingface.png
+      url: https://huggingface.co/
+      description: AI模型和数据集共享平台，开源社区
+    - title: Coursera AI
+      logo: assets/images/logos/coursera.png
+      url: https://www.coursera.org/specializations/deep-learning
+      description: Andrew Ng的深度学习专项课程
+    - title: Kaggle
+      logo: assets/images/logos/kaggle.png
+      url: https://www.kaggle.com/
+      description: 数据科学竞赛平台和学习资源
+    - title: Papers with Code
+      logo: assets/images/logos/paperswithcode.png
+      url: https://paperswithcode.com/
+      description: 机器学习论文和相关实现代码
+    - title: AI研习社
+      logo: assets/images/logos/ailearning.png
+      url: https://www.yanxishe.com/
+      description: 中文AI学习社区和资源平台
+    - title: 动手学深度学习
+      logo: assets/images/logos/d2l.png
+      url: https://d2l.ai/
+      description: 互动式深度学习教程和电子书
+    - title: DeepLearning.AI
+      logo: assets/images/logos/deeplearningai.png
+      url: https://www.deeplearning.ai/
+      description: Andrew Ng创办的AI教育平台

@@ -1,0 +1,29 @@
+# 设置默认字符集为UTF-8
+AddDefaultCharset UTF-8
+
+# 允许中文和特殊字符的URL
+Options -MultiViews
+RewriteEngine On
+
+# 处理中文URL编码问题
+<IfModule mod_rewrite.c>
+  # 确保处理编码的URL
+  RewriteCond %{REQUEST_URI} ^/categories/
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^/]+)/([^\ ]+)
+  RewriteRule .* - [E=REQUEST_URI_PATH:%2]
+  
+  # 处理404错误页面
+  ErrorDocument 404 /404.html
+</IfModule>
+
+# 设置文件类型和编码
+<IfModule mod_mime.c>
+  AddCharset UTF-8 .html .css .js .xml .json .rss
+</IfModule>
+
+# 启用CORS
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|xml|json|css|js|png|jpg|jpeg|gif|svg)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule> 

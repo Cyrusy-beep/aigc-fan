@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>{{ .Site.Title }} - 精选全球顶级AI工具导航平台</title>
+<meta name="theme-color" content="#151c2c" />
+<meta name="keywords" content="{{ .Site.Params.keywords }}">
+<meta name="description" content="{{ .Site.Params.description }}">
+<meta name="author" content="{{ .Site.Params.author }}">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Site.BaseURL }}">
+<meta property="og:title" content="{{ .Site.Title }}">
+<meta property="og:description" content="{{ .Site.Params.description }}">
+<meta property="og:image" content="{{ .Site.BaseURL }}assets/images/site/favicon.png">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ .Site.Title }}">
+<meta name="twitter:description" content="{{ .Site.Params.description }}">
+<meta property="twitter:image" content="{{ .Site.BaseURL }}assets/images/site/favicon.png">
+
+<link rel="canonical" href="{{ .Site.BaseURL }}" />
+
+<!-- 资源预加载 -->
+<link rel="preload" href="./assets/css/font-awesome.min.css" as="style">
+<link rel="preload" href="./assets/css/bootstrap.css" as="style">
+<link rel="preload" href="./assets/css/nav.css" as="style">
+<link rel="preload" href="./assets/css/ai-theme.css" as="style">
+<link rel="preload" href="./assets/js/jquery-1.11.1.min.js" as="script">
+
+<!-- 预加载主题脚本 - 防止闪烁 -->
+<script>
+(function() {
+    // 临时隐藏页面，加载完毕后再显示
+    document.documentElement.style.visibility = 'hidden';
+    
+    // 在页面开始渲染前应用主题
+    var currentTheme = localStorage.getItem('theme') || 'light';
+    if (currentTheme === 'light') {
+        document.documentElement.classList.add('light-theme');
+    } else {
+        document.documentElement.classList.add('ai-theme');
+    }
+    
+    // 预加载关键CSS，防止卡片闪烁
+    var style = document.createElement('style');
+    style.textContent = `
+        /* 预加载关键卡片样式，防止闪烁 */
+        .ai-theme .xe-widget.xe-conversations {
+            background: #1e2538;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+            border: 1px solid #2a324b;
+            transition: all 0.3s ease;
+        }
+        
+        .light-theme .xe-widget.xe-conversations {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+        
+        /* 预加载文本颜色，防止文字闪烁 */
+        .ai-theme {
+            color: #ffffff;
+        }
+        
+        .light-theme {
+            color: #2c3e50;
+        }
+        
+        /* 预加载卡片标题样式 */
+        .ai-theme .xe-comment .xe-user-name strong {
+            color: #ffffff;
+        }
+        
+        .light-theme .xe-comment .xe-user-name strong {
+            color: #2c3e50;
+        }
+        
+        /* 预加载卡片描述文本样式 */
+        .ai-theme .xe-comment p {
+            color: #adb5bd;
+        }
+        
+        .light-theme .xe-comment p {
+            color: #6c757d;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // CSS加载完成后显示页面
+    window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            document.documentElement.style.visibility = 'visible';
+        }, 50); // 短暂延迟确保样式已应用
+    });
+})();
+</script>
+
+<!-- 结构化数据帮助搜索引擎理解网站内容 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ .Site.Title }}",
+  "url": "{{ .Site.BaseURL }}",
+  "description": "{{ .Site.Params.description }}",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "{{ .Site.BaseURL }}?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<!-- 导航网站的结构化数据 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {{ $categories := .Site.Data.webstack }}
+    {{ $lastIndex := sub (len $categories) 1 }}
+    {{ range $index, $category := $categories }}
+    {
+      "@type": "ListItem",
+      "position": {{ add $index 1 }},
+      "name": "{{ $category.taxonomy }}",
+      "url": "{{ $.Site.BaseURL }}#{{ md5 $category.taxonomy }}"
+    }{{ if ne $index $lastIndex }},{{ end }}
+    {{ end }}
+  ]
+}
+</script>
+
+<!-- 组织信息的结构化数据 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "{{ .Site.Title }}",
+  "url": "{{ .Site.BaseURL }}",
+  "logo": "{{ .Site.BaseURL }}assets/images/site/favicon.png",
+  "description": "{{ .Site.Params.description }}"
+}
+</script>
+
+<link rel="shortcut icon" href="./assets/images/site/favicon.png">
+<link rel="apple-touch-icon" href="./assets/images/site/app-ico.png">
+<link rel='stylesheet' id='font-awesome-css'  href='./assets/css/font-awesome.min.css?ver=4.7.0' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='./assets/css/bootstrap.css?ver=3.4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='nav-css'  href='./assets/css/nav.css?ver=2.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='ai-theme-css'  href='./assets/css/ai-theme.css?ver=1.0.0' type='text/css' media='all' />
+
+<!-- 优化Google字体加载 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap&text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap&text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789" media="print" onload="this.media='all'">
+<style>
+  /* 字体失败后的后备方案 */
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Roboto'), local('Segoe UI'), local('Arial'), local(sans-serif);
+  }
+</style>
+
+<script type='text/javascript' src='./assets/js/jquery-1.11.1.min.js'></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C02RG4YM9R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C02RG4YM9R');
+</script>
+</head>
+<body class="page-body {{ if .Site.Params.darkmode.enable }}black{{ else }}white{{ end }}">
+    <div class="page-container">
+        <div class="sidebar-menu toggle-others fixed">
+            <div class="sidebar-menu-inner">
+                <header class="logo-env">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="index.html" class="logo-expanded">
+                            <img src="./assets/images/site/{{ if .Site.Params.darkmode.enable }}logo_dark@2x.png{{ else }}logo@2x.png{{ end }}" height="40" alt="" style="margin: 0 auto;" />
+                        </a>
+                        <a href="index.html" class="logo-collapsed">
+                            <img src="./assets/images/site/logo-collapsed@2x.png" height="40" alt="" style="margin: 0 auto;">
+                        </a>
+                    </div>
+                    <div class="mobile-menu-toggle visible-xs">
+                        <a href="#" data-toggle="mobile-menu">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </div>
+                </header>
+                <ul id="main-menu" class="main-menu">
+                    {{ range .Site.Data.webstack }}
+                    {{ if .list }}
+                        <li>
+                            <a>
+                               <i class="fa {{ .icon }} fa-fw"></i>
+                               <span class="title">{{ .taxonomy }}</span>
+                            </a>
+                            <ul>
+                                {{ range .list }}    
+                                <li>
+                                    <a href="#{{ md5 .term }}" class="smooth">{{ .term }}</a>
+                                </li>
+                                {{ end }}
+                            </ul>
+                        </li>
+                    {{ else }}
+                        <li>
+                            <a href="#{{ md5 .taxonomy }}" class="smooth">
+                               <i class="fa {{ .icon }} fa-fw"></i>
+                               <span class="title">{{ .taxonomy }}</span>
+                            </a>
+                        </li> 
+                    {{ end }}
+                    {{ end }}
+                    <li>
+                        <a href="./about">
+                            <i class="fa fa-heart fa-fw"></i>
+                            <span class="tooltip-blue">关于本站</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-content">
+<nav class="navbar user-info-navbar" role="navigation">
+    <div class="navbar-content">
+        <ul class="user-info-menu left-links list-inline list-unstyled">
+            <li class="hidden-xs">
+            <a href="#" data-toggle="sidebar"><i class="fa fa-bars"></i></a>
+            </li>
+            <!-- 将主题切换按钮添加到左侧 -->
+            <li>
+                <a href="#" id="theme-toggle-btn" title="切换主题" style="display: flex !important; align-items: center !important; justify-content: center !important; width: 38px !important; height: 38px !important; border-radius: 50% !important; background: rgba(111, 66, 193, 0.1) !important;">
+                    <i class="fa fa-moon-o" id="theme-toggle-icon" style="font-size: 18px !important;"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+{{ template "search.html" . }}
+<div class="sites-list" style="margin-bottom: 8.5rem;">
+{{ range .Site.Data.webstack }}
+    {{ if .list }}
+        {{ range .list }}
+        <!-- {{ .term }} -->
+        <section class="category-section" aria-labelledby="category-{{ md5 .term }}">
+            <div class="category-header">
+                <h2 class="text-gray" id="category-{{ md5 .term }}" style="display: inline-block;">
+                    <i class="icon-io-tag" style="margin-right: 27px;" id="{{ md5 .term }}"></i>{{ .term }}
+                </h2>
+                <a href="/categories/{{ .term | urlquery }}/" target="_blank" class="category-more-link" title="查看《{{ .term }}》分类的更多内容">
+                    <span class="more-text">查看更多</span> <i class="fa fa-angle-right"></i>
+                </a>
+                <meta itemprop="name" content="{{ .term }} - AI工具导航">
+                <meta itemprop="description" content="{{ .term }}分类下的精选AI工具合集，包含多种优质{{ .term }}应用">
+            </div>
+            <div class="row" itemscope itemtype="http://schema.org/ItemList">
+            {{ range $index, $element := .links }}
+                {{ if .qrcode }}
+                <div class="xe-card col-sm-4 col-md-3 qrcode" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a href="javascript:" target="" class="xe-widget xe-conversations box2 label-info" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<img src='{{ .qrcode }}' width='128'>" itemprop="url">
+                        <meta itemprop="position" content="{{ add $index 1 }}">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/site/favicon.png" data-src="{{ .logo }}" onerror="javascript:this.src='./assets/images/site/favicon.png'" width="40" itemprop="image">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1" itemprop="name">
+                                    <strong>{{ .title }}</strong>
+                                </div>
+                                <p class="overflowClip_2" itemprop="description">{{ .description }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {{ else }}
+                <div class="xe-card col-sm-4 col-md-3" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a href="{{ .url }}" target="_blank" class="xe-widget xe-conversations box2 label-info" itemprop="url">
+                        <meta itemprop="position" content="{{ add $index 1 }}">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/site/favicon.png" data-src="{{ .logo }}" onerror="javascript:this.src='./assets/images/site/favicon.png'" width="40" itemprop="image">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1" itemprop="name">
+                                    <strong>{{ .title }}</strong>
+                                </div>
+                                <p class="overflowClip_2" itemprop="description">{{ .description }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {{ end }}
+            {{ end }}
+            </div>
+        </section>
+        <br />
+        <!--END {{ .term }} -->
+        {{ end }}
+    {{ else }}
+        <!-- {{ .taxonomy }} -->
+        <section class="category-section" aria-labelledby="category-{{ md5 .taxonomy }}">
+            <div class="category-header">
+                <h2 class="text-gray" id="category-{{ md5 .taxonomy }}" style="display: inline-block;">
+                    <i class="icon-io-tag" style="margin-right: 27px;" id="{{ md5 .taxonomy }}"></i>{{ .taxonomy }}
+                </h2>
+                <a href="/categories/{{ .taxonomy | urlquery }}/" target="_blank" class="category-more-link" title="查看《{{ .taxonomy }}》分类的更多内容">
+                    <span class="more-text">查看更多</span> <i class="fa fa-angle-right"></i>
+                </a>
+                <meta itemprop="name" content="{{ .taxonomy }} - AI工具导航">
+                <meta itemprop="description" content="{{ .taxonomy }}分类下的精选AI工具合集，包含多种优质{{ .taxonomy }}应用">
+            </div>
+            <div class="row" itemscope itemtype="http://schema.org/ItemList">
+            {{ range $index, $element := .links }}
+                {{ if .qrcode }}
+                <div class="xe-card col-sm-4 col-md-3 qrcode" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a href="javascript:" target="" class="xe-widget xe-conversations box2 label-info" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<img src='{{ .qrcode }}' width='128'>" itemprop="url">
+                        <meta itemprop="position" content="{{ add $index 1 }}">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/site/favicon.png" data-src="{{ .logo }}" onerror="javascript:this.src='./assets/images/site/favicon.png'" width="40" itemprop="image">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1" itemprop="name">
+                                    <strong>{{ .title }}</strong>
+                                </div>
+                                <p class="overflowClip_2" itemprop="description">{{ .description }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {{ else }}
+                <div class="xe-card col-sm-4 col-md-3" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a href="{{ .url }}" target="_blank" class="xe-widget xe-conversations box2 label-info" itemprop="url">
+                        <meta itemprop="position" content="{{ add $index 1 }}">
+                        <div class="xe-comment-entry">
+                            <div class="xe-user-img">
+                                <img class="img-circle lazy" src="./assets/images/site/favicon.png" data-src="{{ .logo }}" onerror="javascript:this.src='./assets/images/site/favicon.png'" width="40" itemprop="image">
+                            </div>
+                            <div class="xe-comment">
+                                <div class="xe-user-name overflowClip_1" itemprop="name">
+                                    <strong>{{ .title }}</strong>
+                                </div>
+                                <p class="overflowClip_2" itemprop="description">{{ .description }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {{ end }}
+            {{ end }}
+            </div>
+        </section>
+        <br />
+        <!--END {{ .taxonomy }} -->
+    {{ end }}
+{{ end }}
+</div>
+            <footer class="main-footer sticky footer-type-1">
+                <div class="go-up">
+                    <a href="#" rel="go-top">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+                <div class="footer-inner">
+                    <div class="footer-text">
+                        <a href="https://www.aigc-fan.com/"><strong>{{ if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}aigc-fan.com{{ end }}</strong></a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script type='text/javascript' src='./assets/js/bootstrap.min.js?ver=3.4.1'></script>
+    <script type='text/javascript' src='./assets/js/TweenMax.min.js?ver=1.13.1'></script>
+    <script type='text/javascript' src='./assets/js/perfect-scrollbar.min.js?ver=0.5.8'></script>
+    <script type='text/javascript' src='./assets/js/nav.js?ver=2.0.0'></script>
+    <script type='text/javascript' src='./assets/js/lazyload.min.js?ver=2.0.0'></script>
+    <script src="./assets/js/ai-theme.js"></script>
+    <script type='text/javascript' src='./assets/js/url-handler.js'></script>
+    <script type="text/javascript">
+        // 调试日志函数
+        function debug(message) {
+            console.log('[首页] ' + message);
+        }
+        
+        // 输出初始环境信息
+        debug('页面加载: ' + window.location.pathname + window.location.search + window.location.hash);
+        debug('浏览器: ' + navigator.userAgent);
+
+        $(document).ready(function() {
+            debug('文档已就绪');
+            
+            // 处理URL参数中的主题设置和localStorage中的主题
+            function applyTheme() {
+                // 优先从localStorage获取主题
+                var savedTheme = localStorage.getItem('theme');
+                debug('localStorage中的主题: ' + savedTheme);
+                
+                if (savedTheme === 'light') {
+                    // 应用亮色主题
+                    document.documentElement.classList.add('light-theme');
+                    document.body.classList.add('light-theme');
+                    document.documentElement.classList.remove('ai-theme');
+                    document.body.classList.remove('ai-theme');
+                    debug('应用亮色主题');
+                } else if (savedTheme === 'dark') {
+                    // 应用暗色主题
+                    document.documentElement.classList.add('ai-theme');
+                    document.body.classList.add('ai-theme');
+                    document.documentElement.classList.remove('light-theme');
+                    document.body.classList.remove('light-theme');
+                    debug('应用暗色主题');
+                }
+            }
+            
+            // 应用主题
+            applyTheme();
+            
+            // 处理从分类页面跳转过来的锚点定位
+            function handleSavedAnchor() {
+                // 从localStorage获取目标锚点
+                var targetAnchor = localStorage.getItem('targetAnchor');
+                debug('localStorage中的锚点: ' + targetAnchor);
+                
+                if (targetAnchor) {
+                    // 查找锚点元素
+                    var targetElement = document.getElementById(targetAnchor);
+                    
+                    // 如果直接找不到元素，尝试查找带"category-"前缀的元素
+                    if (!targetElement) {
+                        targetElement = document.getElementById('category-' + targetAnchor);
+                        debug('尝试查找category前缀的元素: ' + (targetElement ? '成功' : '失败'));
+                    }
+                    
+                    // 如果仍然找不到，尝试使用选择器查找包含该ID的其他元素
+                    if (!targetElement) {
+                        var possibleElements = document.querySelectorAll('[id*="' + targetAnchor + '"]');
+                        if (possibleElements && possibleElements.length > 0) {
+                            // 使用第一个找到的元素
+                            targetElement = possibleElements[0];
+                            debug('使用选择器找到相关元素: ' + targetElement.id);
+                        }
+                    }
+                    
+                    // 如果仍然找不到，尝试查找包含该分类名称的section
+                    if (!targetElement) {
+                        var sections = document.querySelectorAll('.category-section');
+                        for (var i = 0; i < sections.length; i++) {
+                            if (sections[i].textContent.includes(decodeURIComponent(targetAnchor)) || 
+                                sections[i].getAttribute('aria-labelledby') && 
+                                sections[i].getAttribute('aria-labelledby').includes(targetAnchor)) {
+                                targetElement = sections[i];
+                                debug('通过section内容找到元素');
+                                break;
+                            }
+                        }
+                    }
+                    
+                    debug('找到锚点元素: ' + (targetElement ? '是' : '否'));
+                    
+                    if (targetElement) {
+                        // 延迟滚动以确保页面完全加载
+                        setTimeout(function() {
+                            debug('滚动到元素: ' + targetAnchor);
+                            
+                            // 计算目标位置，减去导航栏高度
+                            var navbarHeight = $('.navbar').outerHeight() || 60;
+                            var targetPosition = $(targetElement).offset().top - navbarHeight - 20;
+                            debug('目标位置: ' + targetPosition + 'px (减去导航栏高度 ' + navbarHeight + 'px)');
+                            
+                            // 平滑滚动到目标位置
+                            $('html, body').animate({
+                                scrollTop: targetPosition
+                            }, 500, function() {
+                                // 移除高亮效果，不再添加highlight-anchor类
+                                debug('滚动完成');
+                            });
+                            
+                            // 清除localStorage中的锚点信息
+                            localStorage.removeItem('targetAnchor');
+                            debug('已清除localStorage中的锚点信息');
+                        }, 500);
+                    } else {
+                        // 未找到目标元素，清除锚点信息
+                        localStorage.removeItem('targetAnchor');
+                        debug('未找到目标元素，已清除localStorage中的锚点信息');
+                    }
+                }
+            }
+            
+            // 处理锚点定位
+            handleSavedAnchor();
+            
+            // 修复首页内部锚点定位
+            function fixInternalAnchors() {
+                debug('设置首页内部锚点定位');
+                
+                // 获取导航栏高度
+                var navbarHeight = $('.navbar').outerHeight() || 60;
+                debug('导航栏高度: ' + navbarHeight + 'px');
+                
+                // 监听所有内部锚点链接点击
+                $('.smooth').on('click', function(e) {
+                    e.preventDefault();
+                    var target = $(this).attr('href');
+                    
+                    if (target && target.startsWith('#')) {
+                        var targetId = target.substring(1);
+                        var targetElement = document.getElementById(targetId);
+                        
+                        debug('点击内部锚点: ' + target);
+                        
+                        // 如果直接找不到元素，尝试查找带"category-"前缀的元素
+                        if (!targetElement) {
+                            targetElement = document.getElementById('category-' + targetId);
+                            debug('尝试查找category前缀的元素: ' + (targetElement ? '成功' : '失败'));
+                        }
+                        
+                        // 如果仍然找不到，尝试使用选择器查找包含该ID的其他元素
+                        if (!targetElement) {
+                            var possibleElements = document.querySelectorAll('[id*="' + targetId + '"]');
+                            if (possibleElements && possibleElements.length > 0) {
+                                // 使用第一个找到的元素
+                                targetElement = possibleElements[0];
+                                debug('使用选择器找到相关元素: ' + targetElement.id);
+                            }
+                        }
+                        
+                        // 如果仍然找不到，尝试查找包含该分类名称的section
+                        if (!targetElement) {
+                            var sections = document.querySelectorAll('.category-section');
+                            for (var i = 0; i < sections.length; i++) {
+                                if (sections[i].textContent.includes(decodeURIComponent(targetId)) || 
+                                    sections[i].getAttribute('aria-labelledby') && 
+                                    sections[i].getAttribute('aria-labelledby').includes(targetId)) {
+                                    targetElement = sections[i];
+                                    debug('通过section内容找到元素');
+                                    break;
+                                }
+                            }
+                        }
+                        
+                        debug('找到目标元素: ' + (targetElement ? '是' : '否'));
+                        
+                        if (targetElement) {
+                            // 计算目标位置，考虑导航栏高度
+                            var targetPosition = $(targetElement).offset().top - navbarHeight - 20;
+                            debug('目标位置: ' + targetPosition + 'px');
+                            
+                            // 平滑滚动到目标位置
+                            $('html, body').animate({
+                                scrollTop: targetPosition
+                            }, 500, function() {
+                                // 移除高亮效果，不再添加highlight-anchor类
+                                debug('滚动完成');
+                                
+                                // 更新URL，但不触发滚动
+                                if (history.pushState) {
+                                    history.pushState(null, null, target);
+                                }
+                            });
+                        }
+                    }
+                    
+                    return false;
+                });
+            }
+            
+            // 调用修复函数
+            fixInternalAnchors();
+            
+            // 处理页面加载时的URL锚点
+            function handleUrlHash() {
+                if (window.location.hash) {
+                    var hash = window.location.hash.substring(1);
+                    var targetElement = document.getElementById(hash);
+                    
+                    debug('URL中存在锚点: ' + hash);
+                    
+                    // 如果直接找不到元素，尝试查找带"category-"前缀的元素
+                    if (!targetElement) {
+                        targetElement = document.getElementById('category-' + hash);
+                        debug('尝试查找category前缀的元素: ' + (targetElement ? '成功' : '失败'));
+                    }
+                    
+                    // 如果仍然找不到，尝试使用选择器查找包含该ID的其他元素
+                    if (!targetElement) {
+                        var possibleElements = document.querySelectorAll('[id*="' + hash + '"]');
+                        if (possibleElements && possibleElements.length > 0) {
+                            // 使用第一个找到的元素
+                            targetElement = possibleElements[0];
+                            debug('使用选择器找到相关元素: ' + targetElement.id);
+                        }
+                    }
+                    
+                    // 如果仍然找不到，尝试查找包含该分类名称的section
+                    if (!targetElement) {
+                        var sections = document.querySelectorAll('.category-section');
+                        for (var i = 0; i < sections.length; i++) {
+                            if (sections[i].textContent.includes(decodeURIComponent(hash)) || 
+                                sections[i].getAttribute('aria-labelledby') && 
+                                sections[i].getAttribute('aria-labelledby').includes(hash)) {
+                                targetElement = sections[i];
+                                debug('通过section内容找到元素');
+                                break;
+                            }
+                        }
+                    }
+                    
+                    debug('找到目标元素: ' + (targetElement ? '是' : '否'));
+                    
+                    if (targetElement) {
+                        setTimeout(function() {
+                            // 计算位置并滚动
+                            var navbarHeight = $('.navbar').outerHeight() || 60;
+                            var targetPosition = $(targetElement).offset().top - navbarHeight - 20;
+                            
+                            debug('滚动到URL锚点位置: ' + targetPosition + 'px');
+                            
+                            // 平滑滚动到目标位置
+                            $('html, body').animate({
+                                scrollTop: targetPosition
+                            }, 500, function() {
+                                // 移除高亮效果，不再添加highlight-anchor类
+                                debug('滚动完成');
+                            });
+                        }, 500);
+                    }
+                }
+            }
+            
+            // 处理URL锚点
+            handleUrlHash();
+            
+            // 添加高亮样式
+            var style = document.createElement('style');
+            style.textContent = `
+                /* 移除highlight-anchor相关样式 */
+                
+                /* 为所有可能的锚点目标添加上边距 */
+                .category-section {
+                    scroll-margin-top: 80px;
+                }
+                
+                /* 确保滚动到锚点时有足够的空间 */
+                .category-header {
+                    padding-top: 15px;
+                }
+            `;
+            document.head.appendChild(style);
+            
+            $(document).on('click', '.has-sub', function(){
+                var _this = $(this)
+                if(!$(this).hasClass('expanded')) {
+                   setTimeout(function(){
+                        _this.find('ul').attr("style","")
+                   }, 300);
+                  
+                } else {
+                    $('.has-sub ul').each(function(id,ele){
+                        var _that = $(this)
+                        if(_this.find('ul')[0] != ele) {
+                            setTimeout(function(){
+                                _that.attr("style","")
+                            }, 300);
+                        }
+                    })
+                }
+            })
+            $('.user-info-menu .hidden-xs').click(function(){
+                if($('.sidebar-menu').hasClass('collapsed')) {
+                    $('.has-sub.expanded > ul').attr("style","")
+                } else {
+                    $('.has-sub.expanded > ul').show()
+                }
+            })
+            $("#main-menu li ul li").click(function() {
+                $(this).siblings('li').removeClass('active'); // 删除其他兄弟元素的样式
+                $(this).addClass('active'); // 添加当前元素的样式
+            });
+            
+            // 加载图片
+            var lazyLoadInstance = new LazyLoad({
+                elements_selector: ".lazy"
+            });
+            
+            return false;
+        });
+
+        // 已由ai-theme.js替换导航功能，移除旧代码
+        
+    </script>
+
+    <!-- 主题切换脚本 -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 应用主题
+        let currentTheme = localStorage.getItem('theme') || 'light';
+        
+        if (currentTheme === 'light') {
+            document.documentElement.classList.remove('ai-theme');
+            document.documentElement.classList.add('light-theme');
+            document.body.classList.remove('ai-theme');
+            document.body.classList.add('light-theme');
+        } else {
+            document.documentElement.classList.remove('light-theme');
+            document.documentElement.classList.add('ai-theme');
+            document.body.classList.remove('light-theme');
+            document.body.classList.add('ai-theme');
+        }
+        
+        // 更新主题切换按钮图标
+        function updateThemeToggleIcon() {
+            const toggleIcon = document.getElementById('theme-toggle-icon');
+            if (!toggleIcon) return;
+            
+            if (currentTheme === 'light') {
+                toggleIcon.classList.remove('fa-sun-o');
+                toggleIcon.classList.add('fa-moon-o');
+                toggleIcon.setAttribute('title', '切换到暗色模式');
+            } else {
+                toggleIcon.classList.remove('fa-moon-o');
+                toggleIcon.classList.add('fa-sun-o');
+                toggleIcon.setAttribute('title', '切换到亮色模式');
+            }
+        }
+        
+        // 初始化更新图标
+        updateThemeToggleIcon();
+        
+        // 添加主题切换按钮点击事件
+        const toggleBtn = document.getElementById('theme-toggle-btn');
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // 切换主题
+                currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                // 保存新主题
+                localStorage.setItem('theme', currentTheme);
+                
+                // 应用新主题
+                if (currentTheme === 'light') {
+                    document.documentElement.classList.remove('ai-theme');
+                    document.documentElement.classList.add('light-theme');
+                    document.body.classList.remove('ai-theme');
+                    document.body.classList.add('light-theme');
+                } else {
+                    document.documentElement.classList.remove('light-theme');
+                    document.documentElement.classList.add('ai-theme');
+                    document.body.classList.remove('light-theme');
+                    document.body.classList.add('ai-theme');
+                }
+                
+                // 更新图标
+                updateThemeToggleIcon();
+            });
+        }
+    });
+    </script>
+</body>
+</html>

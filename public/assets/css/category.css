@@ -1,0 +1,161 @@
+/* 分类页面特定样式 */
+
+/* 分类页面布局 */
+.category-page-header {
+  margin-bottom: 30px;
+}
+
+.category-title {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.category-description {
+  font-size: 16px;
+  margin-bottom: 20px;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+/* 卡片样式调整 */
+.xe-widget.xe-conversations {
+  position: absolute;
+  margin-bottom: 0px;
+  padding: 15px;
+  left: 0;
+  right: 0;
+  margin: 0 15px;
+  transition: all 0.3s ease;
+}
+
+.light-theme .xe-widget.xe-conversations {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.ai-theme .xe-widget.xe-conversations {
+  background: #1e2538;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.xe-widget.xe-conversations:hover {
+  transform: translateY(-5px);
+}
+
+.light-theme .xe-widget.xe-conversations:hover {
+  box-shadow: 0 8px 25px rgba(111, 66, 193, 0.15);
+}
+
+.ai-theme .xe-widget.xe-conversations:hover {
+  box-shadow: 0 0 15px rgba(111, 66, 193, 0.5), 0 0 30px rgba(0, 212, 255, 0.2);
+}
+
+/* 确保工具卡片在分类页面有足够的空间 */
+.xe-card {
+  margin-bottom: 30px !important;
+  min-height: 100px;
+}
+
+/* 相关分类部分 */
+.related-categories {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid;
+}
+
+.ai-theme .related-categories {
+  border-top-color: #2a324b;
+}
+
+.light-theme .related-categories {
+  border-top-color: #e9ecef;
+}
+
+.related-categories h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.related-categories-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.related-category-link {
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.ai-theme .related-category-link {
+  background: #1e2538;
+  border: 1px solid #2a324b;
+  color: #ffffff;
+}
+
+.ai-theme .related-category-link:hover {
+  background: #252d44;
+  border-color: var(--ai-accent);
+  color: var(--ai-accent);
+}
+
+.light-theme .related-category-link {
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  color: #2c3e50;
+}
+
+.light-theme .related-category-link:hover {
+  background: #f8f9fa;
+  border-color: var(--ai-light-primary);
+  color: var(--ai-light-primary);
+}
+
+/* 返回首页链接 */
+.home-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.ai-theme .home-link {
+  background: #1e2538;
+  border: 1px solid #2a324b;
+  color: #ffffff;
+}
+
+.ai-theme .home-link:hover {
+  background: #252d44;
+  border-color: var(--ai-accent);
+  color: var(--ai-accent);
+}
+
+.light-theme .home-link {
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  color: #2c3e50;
+}
+
+.light-theme .home-link:hover {
+  background: #f8f9fa;
+  border-color: var(--ai-light-primary);
+  color: var(--ai-light-primary);
+}
+
+/* 确保分类页面的卡片悬浮提示正常工作 */
+.category-page .card-tooltip {
+  z-index: 1010;
+}
+
+/* 确保分类页面中的描述文本溢出时被正确处理 */
+.category-page .overflowClip_2 {
+  max-height: 40px;
+} 
