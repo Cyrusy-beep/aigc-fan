@@ -1,6 +1,6 @@
 /**
- * URL处理器 - 解决中文分类URL编码问题
- * v1.1.0 - 修复大小写和编码冲突问题
+ * URL处理器 - 处理分类URL编码和英文slug映射
+ * v1.2.0 - 增加英文slug到中文分类的映射
  */
 (function() {
   // 防止重复加载
@@ -28,6 +28,31 @@
     '办公ai': '办公AI'
   };
   
+  // 英文slug到中文分类的映射
+  const SLUG_TO_CATEGORY = {
+    'chat-ai': '聊天AI',
+    'reading-ai': '阅读AI',
+    'writing-ai': '写作AI',
+    'painting-ai': '绘画AI',
+    'image-ai': '图像AI',
+    'design-ai': '设计AI',
+    'audio-ai': '音频AI',
+    'video-ai': '视频AI',
+    'coding-ai': '编程AI',
+    'development-frameworks': '开发框架',
+    'prompt-engineering': '提示词工程',
+    'office-ai': '办公AI',
+    'content-detection': '内容检测',
+    'model-training': '模型训练',
+    'cross-border-ai': '跨境AI',
+    'ai-learning-resources': 'AI学习资源',
+    'background-removal': '背景移除',
+    'lossless-adjustment': '无损调整',
+    'optimization-repair': '优化修复',
+    'object-removal': '物体抹除',
+    '3d-ai': '3D AI'
+  };
+  
   // 当DOM加载完成后执行
   document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM已加载，开始处理URL');
@@ -43,7 +68,7 @@
   });
 
   /**
-   * 处理可能由于URL编码导致的404错误
+   * 处理可能由于URL编码导致的404错误，或将英文slug映射到中文分类
    */
   function handlePossible404Redirect() {
     // 获取当前URL路径
@@ -56,6 +81,13 @@
         // 获取分类部分
         const categoryPart = path.split('/categories/')[1].replace(/\/$/, '');
         console.log('分类部分:', categoryPart);
+        
+        // 首先检查是否是英文slug
+        if (SLUG_TO_CATEGORY[categoryPart]) {
+          console.log('找到英文slug映射:', categoryPart, '->', SLUG_TO_CATEGORY[categoryPart]);
+          // 英文slug不需要重定向，直接返回
+          return;
+        }
         
         // 尝试解码当前URL
         let decodedCategory;
@@ -82,6 +114,18 @@
           }
         }
         
+        // 检查规范化后的分类名是否有对应的英文slug
+        for (const slug in SLUG_TO_CATEGORY) {
+          if (SLUG_TO_CATEGORY[slug] === decodedCategory) {
+            console.log('找到中文分类对应的英文slug:', decodedCategory, '->', slug);
+            const newPath = '/categories/' + slug + '/';
+            console.log('重定向到英文slug URL:', newPath);
+            window.location.href = newPath;
+            return;
+          }
+        }
+        
+        // 如果没有找到对应的英文slug，保持原有的处理逻辑
         // 重新编码分类名
         const correctlyEncodedCategory = encodeURIComponent(decodedCategory);
         console.log('重新编码后的分类:', correctlyEncodedCategory);
@@ -104,7 +148,7 @@
   }
 
   /**
-   * 修正页面上所有分类链接
+   * 修正页面上所有分类链接，优先使用英文slug
    */
   function fixCategoryLinks() {
     // 查找所有指向分类页面的链接
@@ -119,6 +163,12 @@
       const categoryPath = href.replace('/categories/', '').replace(/\/$/, '');
       
       try {
+        // 首先检查是否已经是英文slug
+        if (SLUG_TO_CATEGORY[categoryPath]) {
+          console.log(`链接 ${index + 1} 已经使用英文slug，无需修改`);
+          return;
+        }
+        
         // 尝试解码分类名称
         let decodedCategory;
         try {
@@ -141,16 +191,29 @@
           }
         }
         
-        // 重新正确编码分类名称
-        const correctlyEncodedCategory = encodeURIComponent(decodedCategory);
+        // 查找对应的英文slug
+        let targetSlug = null;
+        for (const slug in SLUG_TO_CATEGORY) {
+          if (SLUG_TO_CATEGORY[slug] === decodedCategory) {
+            targetSlug = slug;
+            break;
+          }
+        }
         
-        // 构建修正后的URL
-        const correctedHref = '/categories/' + correctlyEncodedCategory + '/';
-        
-        // 如果修正后的URL与当前URL不同，则更新链接
-        if (correctedHref !== href) {
-          console.log(`链接 ${index + 1} 从 ${href} 修正为 ${correctedHref}`);
-          link.setAttribute('href', correctedHref);
+        // 如果找到了对应的英文slug，使用它
+        if (targetSlug) {
+          const slugHref = '/categories/' + targetSlug + '/';
+          console.log(`链接 ${index + 1} 从 ${href} 转换为英文slug: ${slugHref}`);
+          link.setAttribute('href', slugHref);
+        } else {
+          // 没有找到对应的英文slug，使用原有编码逻辑
+          const correctlyEncodedCategory = encodeURIComponent(decodedCategory);
+          const correctedHref = '/categories/' + correctlyEncodedCategory + '/';
+          
+          if (correctedHref !== href) {
+            console.log(`链接 ${index + 1} 从 ${href} 修正为 ${correctedHref} (未找到英文slug)`);
+            link.setAttribute('href', correctedHref);
+          }
         }
       } catch (e) {
         console.error(`链接 ${index + 1} 修正失败:`, href, e);

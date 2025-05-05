@@ -6,7 +6,10 @@ preserveTaxonomyNames = true
 disablePathToLower = true
 hasCJKLanguage = true
 copyright = "© 2025 aigc-fan.com 版权所有"
-enableRobotsTXT = true  # 启用robots.txt
+enableRobotsTXT = false  # 禁用自动生成robots.txt
+
+# 禁用sitemap输出类型
+disableKinds = ["sitemap"]
 
 # 添加分类页面支持
 [taxonomies]
@@ -18,12 +21,12 @@ urlPathSeparator = "-"
 removePathAccents = true
 
 [outputs]
-home = ["HTML", "RSS", "JSON", "Sitemap"]
+home = ["HTML", "RSS", "JSON"]
 
 [sitemap]
 changefreq = "weekly"
 priority = 0.5
-filename = "sitemap.xml"
+filename = ""  # 禁用自动生成sitemap
 
 [params]
   author = "AigcFan"

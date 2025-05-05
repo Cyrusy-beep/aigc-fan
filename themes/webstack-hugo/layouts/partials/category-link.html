@@ -1,4 +1,4 @@
-{{/* 处理分类链接的自定义模板，确保中文URL编码正确 */}}
+{{/* 处理分类链接的自定义模板，使用英文slug而非中文分类名 */}}
 {{- $termName := . -}}
-{{- $termPath := $termName | urlquery -}}
+{{- $termPath := .slug | default ($termName | urlquery) -}}
 <a href="/categories/{{ $termPath }}/" class="category-tag">{{ $termName }}</a> 

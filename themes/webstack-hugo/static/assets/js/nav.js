@@ -319,6 +319,59 @@ function trigger_resizable()
 				});
 			}
 		});
+		
+		// 初始化导航菜单高亮 - 为所有菜单项添加点击处理
+		$('#main-menu li a').on('click', function() {
+			// 移除所有高亮
+			$('#main-menu li').removeClass('active');
+			
+			// 添加高亮到当前点击项
+			$(this).parent('li').addClass('active');
+			
+			// 如果是URL hash链接，保存到localStorage以便页面刷新后保持高亮
+			const href = $(this).attr('href');
+			if (href && href.startsWith('#')) {
+				localStorage.setItem('activeMenuItem', href);
+			}
+		});
+		
+		// 页面加载时恢复之前保存的高亮状态
+		const savedActiveItem = localStorage.getItem('activeMenuItem');
+		if (savedActiveItem) {
+			// 找到匹配的菜单项并添加高亮
+			$('#main-menu li a').each(function() {
+				if ($(this).attr('href') === savedActiveItem) {
+					$(this).parent('li').addClass('active');
+				}
+			});
+		} else if (window.location.hash) {
+			// 如果没有保存的项但有URL hash，根据hash设置高亮
+			const hash = window.location.hash;
+			$('#main-menu li a').each(function() {
+				if ($(this).attr('href') === hash) {
+					$(this).parent('li').addClass('active');
+				}
+			});
+		}
+		
+		// 监听hashchange事件
+		$(window).on('hashchange', function() {
+			if (window.location.hash) {
+				// 获取新的hash
+				const newHash = window.location.hash;
+				
+				// 移除所有高亮
+				$('#main-menu li').removeClass('active');
+				
+				// 查找匹配的链接
+				$('#main-menu li a').each(function() {
+					if ($(this).attr('href') === newHash) {
+						$(this).parent('li').addClass('active');
+						localStorage.setItem('activeMenuItem', newHash);
+					}
+				});
+			}
+		});
 	});
 })(jQuery, window);
 

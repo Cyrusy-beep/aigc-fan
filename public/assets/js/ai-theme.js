@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
         safeCheckNavigationTargets();
         
         // 增强卡片悬停效果
-        enhanceCardHoverEffects();
+        // enhanceCardHoverEffects();
         
         // 添加打字机效果到搜索框
         addTypewriterEffect();
@@ -26,6 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 添加页眉间距
         addHeaderSpacing();
+        
+        // 添加卡片悬停状态管理
+        manageCardHoverState();
         
         console.log('AI主题增强功能已加载');
     } catch (e) {
@@ -185,53 +188,14 @@ function fixNavigation() {
             return;
         }
         
-        // 标记导航系统是否已初始化
-        window.navigationInitialized = false;
-        
-        // 为确保页面完全加载，在$(document).ready内部执行
+        // 处理导航系统锚点滚动
         $(document).ready(function() {
             try {
-                // jQuery已就绪，开始处理导航链接...
+                // 修复ID问题
+                ensureValidIds();
                 
-                // 检查菜单项是否已加载完成
-                const checkMenuLoaded = function() {
-                    const navItems = $('#main-menu li');
-                    if (navItems.length === 0) {
-                        setTimeout(checkMenuLoaded, 500);
-                        return;
-                    }
-                    
-                    initNavigation();
-                };
-                
-                // 主导航初始化函数
-                const initNavigation = function() {
-                    // 避免重复初始化
-                    if (window.navigationInitialized) {
-                        return;
-                    }
-                    
-                    // 标记为已初始化
-                    window.navigationInitialized = true;
-                    
-                    // 确保在分析前先修复ID
-                    ensureValidIds();
-                    
-                    // 创建导航项到目标元素的映射
-                    const navToTargetMap = new Map();
-                    
-                    // 存储所有导航项及其对应的a标签
-                    const navItems = $('#main-menu li');
-                    
-                    // 分析页面中的所有ID元素
-                    const idElements = document.querySelectorAll('[id]');
-                    
-                    // 省略部分代码，保留原有逻辑但删除console.log
-                    // ... existing code ...
-                 };
-                
-                // 开始检查菜单项是否加载完成
-                checkMenuLoaded();
+                // 使用nav.js中实现的导航高亮功能，不再在这里重复实现
+                console.log('使用nav.js中的导航高亮功能');
                 
             } catch (err) {
                 console.error('初始化导航时出错:', err);
@@ -276,6 +240,10 @@ function enhanceCardHoverEffects() {
     const cards = document.querySelectorAll('.xe-widget.xe-conversations');
     
     cards.forEach(card => {
+        // 获取对应的按钮 (假设按钮是卡片父级 .xe-card 里的 .visit-website-button)
+        const parentCardDiv = card.closest('.xe-card');
+        const button = parentCardDiv ? parentCardDiv.querySelector('.visit-website-button') : null;
+
         // 鼠标移入时的3D效果
         card.addEventListener('mousemove', function(e) {
             const rect = this.getBoundingClientRect();
@@ -286,9 +254,17 @@ function enhanceCardHoverEffects() {
             const xRotation = ((y - rect.height / 2) / rect.height) * -10;
             const yRotation = ((x - rect.width / 2) / rect.width) * 10;
             
-            // 应用变换
-            this.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) translateY(-5px)`;
+            // 构建 transform 字符串
+            const transformStyle = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) translateY(-5px)`;
+
+            // 应用变换到卡片内容
+            this.style.transform = transformStyle;
             
+            // 应用变换到按钮 (如果存在)
+            if (button) {
+                button.style.transform = transformStyle;
+            }
+
             // 光照效果 - 根据鼠标位置改变光照方向
             const shine = this.querySelector('.shine') || document.createElement('div');
             if (!shine.classList.contains('shine')) {
@@ -313,7 +289,15 @@ function enhanceCardHoverEffects() {
         
         // 鼠标移出时重置效果
         card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(-5px)';
+            // 重置卡片内容 transform 到原始位置
+            this.style.transform = 'translateY(0px)'; 
+
+            // 重置按钮 transform 到原始位置 (如果存在)
+            if (button) {
+                button.style.transform = 'translateY(0px)';
+            }
+
+            // 移除光照效果
             const shine = this.querySelector('.shine');
             if (shine) {
                 shine.style.background = 'none';
@@ -560,4 +544,19 @@ function scrollToElement(targetElement, additionalOffset = 20) {
     } catch (err) {
         console.error('滚动到元素时出错:', err);
     }
+}
+
+/**
+ * 管理卡片悬停状态
+ */
+function manageCardHoverState() {
+    const cardElements = document.querySelectorAll('.xe-card');
+    cardElements.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.classList.add('card-hovered');
+        });
+        card.addEventListener('mouseleave', function() {
+            this.classList.remove('card-hovered');
+        });
+    });
 } 

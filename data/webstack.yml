@@ -1,6 +1,7 @@
 ---
 
 - taxonomy: 聊天AI
+  slug: chat-ai
   icon: fa-comments
   links:
   - title: ChatGPT
@@ -312,6 +313,7 @@
     url: https://ask.feishu.cn/guest
     description: 飞书智能办公平台推出的A!知识库工具
 - taxonomy: 阅读AI
+  slug: reading-ai
   icon: fa-book
   links:
   - title: Chatdoc
@@ -403,6 +405,7 @@
     url: https://smartread.cc/
     description: 高效应用于工作、学习场景，如读行业市场报告、产品手册、法律文档、论文文献、电子书等
 - taxonomy: 写作AI
+  slug: writing-ai
   icon: fa-pencil
   links:
   - title: Jasper
@@ -962,6 +965,7 @@
     url: https://fanyi.sogou.com/text
     description: 支持中、英、法、日等50多种语言之间的互译功能
 - taxonomy: 绘画AI
+  slug: painting-ai
   icon: fa-paint-brush
   links:
   - title: Midjourney
@@ -1169,9 +1173,11 @@
     url: https://wime-ai.com/?channelSource=GW-YSW
     description: 电商必备!AI扩图/抠图/商品海报/营销写作全流程创作平台
 - taxonomy: 图像AI
+  slug: image-ai
   icon: fa-image
   list:
   - term: 图像AI
+    slug: image-ai
     links:
     - title: ARC Lab
       logo: /assets/images/logos/logo_ARC Lab.png
@@ -1574,6 +1580,7 @@
       url: https://www.youchuan.cn/
       description: Midjourney官方推出的中文版AI图像生成工具
   - term: 背景移除
+    slug: background-removal
     links:
     - title: Icons8 Background Remover
       logo: /assets/images/logos/logo_Icons8 Background Remover.png
@@ -1740,6 +1747,7 @@
       url: https://www.meijian.com/mj-box/ai-pic-matting-intro?subSiteFrom=E-commerce&utm_source=dsdhaibot
       description: 美间AI推出的免费智能抠图工具
   - term: 无损调整
+    slug: lossless-adjustment
     links:
     - title: BigJPG
       logo: /assets/images/logos/logo_BigJPG.png
@@ -1830,6 +1838,7 @@
       url: https://mejorarimagen.org/
       description: AI图像放大增强工具，快速放大至10倍或12K分辨率
   - term: 优化修复
+    slug: optimization-repair
     links:
     - title: Cutout.Pro老照片上色
       logo: /assets/images/logos/logo_Cutout.Pro老照片上色.png
@@ -1884,6 +1893,7 @@
       url: https://picma.magictiger.ai/
       description: AI一键批量增强、修复、彩色化你的照片
   - term: 物体抹除
+    slug: object-removal
     links:
     - title: Bg Eraser
       logo: /assets/images/logos/logo_Bg Eraser.png
@@ -1930,9 +1940,11 @@
       url: https://www.hitpaw.com/
       description: AI图片和视频去水印工具
 - taxonomy: 设计AI
+  slug: design-ai
   icon: fa-object-group
   list:
   - term: 设计AI
+    slug: design-ai
     links:
     - title: Galileo AI
       logo: /assets/images/logos/logo_Galileo AI.png
@@ -2227,6 +2239,7 @@
       url: https://www.shejijia.com/
       description: 居然之家联合阿里推出的AI家装设计平台
   - term: 3D AI
+    slug: 3d-ai
     links:
     - title: Point-e
       logo: /assets/images/logos/logo_Point-e.jpg
@@ -2329,6 +2342,7 @@
       url: https://www.meshy.ai/
       description: AI快速从文本或图像生成3D模型
 - taxonomy: 音频AI
+  slug: audio-ai
   icon: fa-music
   links:
   - title: LALAL.AI
@@ -2640,6 +2654,7 @@
     url: https://noiz.ai/landing
     description: AI配音工具，支持文本转语音和声音克隆
 - taxonomy: 视频AI
+  slug: video-ai
   icon: fa-video-camera
   links:
   - title: Synthesia
@@ -3163,6 +3178,7 @@
     url: https://www.joypix.ai/
     description: AI数字人创作工具，支持声音克隆
 - taxonomy: 编程AI
+  slug: coding-ai
   icon: fa-code
   links:
   - title: GitHub Copilot
@@ -3530,6 +3546,7 @@
     url: https://mgx.dev/
     description: 基于MetaGPT框架的AI编程工具
 - taxonomy: 开发框架
+  slug: development-frameworks
   icon: fa-cubes
   links:
   - title: 飞桨PaddlePaddle
@@ -3649,6 +3666,7 @@
     url: https://tbox.alipay.com/
     description: 蚂蚁集团推出的一站式 A原生应用开发平台
 - taxonomy: 提示词工程
+  slug: prompt-engineering
   icon: fa-magic
   links:
   - title: ChatGPT 指令大全
@@ -3784,6 +3802,7 @@
     url: https://langgptai.feishu.cn/wiki/RXdbwRyASiShtDky381ciwFEnpe
     description: 帮助用户编写高质量的提示词
 - taxonomy: 办公AI
+  slug: office-ai
   icon: fa-briefcase
   links:
   - title: Microsoft 365 Copilot
@@ -4291,6 +4310,7 @@
     url: https://www.cappt.cc/
     description: AI PPT制作工具，设计美化全流程自动化
 - taxonomy: 内容检测
+  slug: content-detection
   icon: fa-shield
   links:
   - title: Winston AI
@@ -4358,6 +4378,7 @@
     url: https://matrix.tencent.com/
     description: 腾讯推出的AI图像和文本鉴别工具
 - taxonomy: 模型训练
+  slug: model-training
   icon: fa-cogs
   links:
   - title: Stable Diffusion
@@ -4553,6 +4574,7 @@
     url: https://ai.gitee.com/?utm_source
     description: AI应用共创平台，提供开发到部署一站式服务
 - taxonomy: 跨境AI
+  slug: cross-border-ai
   icon: fa-globe
   links:
   - title: Chat123 跨境AI助手
@@ -4640,6 +4662,7 @@
     url: https://www.kua.ai/app
     description: 跨境电商AI免费工具，基于gpt-4来搭建，应用场景主要是跨境领域，不管是亚马逊还是独立站。
 - taxonomy: AI学习资源
+  slug: ai-learning-resources
   icon: fa-graduation-cap
   links:
   - title: Coursera

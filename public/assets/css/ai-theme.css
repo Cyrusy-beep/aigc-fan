@@ -80,6 +80,12 @@
     margin-top: 8px;
     margin-left: 30px; /* 对齐标题的缩进 */
   }
+
+  .main-content {
+      padding-right: 20px; /* 在小屏幕上减小右侧内边距 */
+      margin-left: 0; /* 小屏幕通常移除侧边栏占据的左边距 */
+      padding-left: 20px; 
+  }
 }
 
 /* 暗色主题样式 - 同时应用到html和body */
@@ -139,6 +145,7 @@ body.ai-theme .xe-widget.xe-conversations {
   box-shadow: var(--ai-shadow);
   border: 1px solid var(--ai-border);
   transition: all 0.3s ease;
+  outline: none; /* 移除可能的焦点轮廓 */
 }
 
 body.ai-theme .xe-widget.xe-conversations:hover {
@@ -148,15 +155,32 @@ body.ai-theme .xe-widget.xe-conversations:hover {
   background: linear-gradient(145deg, var(--ai-dark-lighter), rgba(111, 66, 193, 0.1)) !important;
 }
 
+body.ai-theme .xe-widget.xe-conversations:active,
+body.ai-theme .xe-widget.xe-conversations:focus {
+    background: var(--ai-dark-lighter) !important; /* 强制背景色不变 */
+    outline: none !important; /* 强制移除轮廓 */
+    /* 可以考虑保留悬停效果或添加其他点击反馈 */
+    /* 例如: box-shadow: var(--ai-glow); */
+    /* border-color: var(--ai-accent); */ 
+}
+
 body.ai-theme .box2 {
   background-color: var(--ai-dark-lighter);
   border: 1px solid var(--ai-border);
+  outline: none; /* 移除可能的焦点轮廓 */
 }
 
 body.ai-theme .box2:hover {
   transform: translateY(-5px);
   box-shadow: var(--ai-glow);
   border-color: var(--ai-accent);
+}
+
+/* 添加 :active 和 :focus 状态样式 */
+body.ai-theme .box2:active,
+body.ai-theme .box2:focus {
+    background-color: var(--ai-dark-lighter) !important; /* 强制背景色不变 */
+    outline: none !important; /* 强制移除轮廓 */
 }
 
 /* 顶部标题 */
@@ -298,8 +322,11 @@ body.ai-theme footer.main-footer {
 }
 
 body.ai-theme footer.main-footer .go-up a {
-  background: linear-gradient(45deg, var(--ai-primary), var(--ai-accent));
   box-shadow: var(--ai-shadow);
+  position: fixed;
+  right: 15px;
+  bottom: 65px;
+  z-index: 1001;
 }
 
 body.ai-theme footer.main-footer .go-up a:hover {
@@ -628,8 +655,11 @@ body.light-theme footer.main-footer {
 }
 
 body.light-theme footer.main-footer .go-up a {
-  background: linear-gradient(45deg, var(--ai-light-primary), var(--ai-light-accent));
   box-shadow: var(--ai-light-shadow);
+  position: fixed;
+  right: 15px;
+  bottom: 65px;
+  z-index: 1001;
 }
 
 body.light-theme footer.main-footer .go-up a:hover {
@@ -964,89 +994,202 @@ h2.text-gray {
 }
 
 /* 主题切换按钮样式 */
-/* 主题切换按钮 */
+/* 主题切换按钮 & 回到顶部按钮 统一风格 */
+#theme-toggle-btn, .go-up a {
+    display: flex !important; /* 强制 flex 布局 */
+    align-items: center !important; /* 垂直居中 */
+    justify-content: center !important; /* 水平居中 */
+    width: 40px !important; /* 统一宽度 */
+    height: 40px !important; /* 统一高度 */
+    border-radius: 50% !important; /* 统一圆形 */
+    position: fixed !important; /* 统一固定定位 */
+    right: 15px !important; /* 统一右边距 */
+    z-index: 1000 !important; /* 统一层级 */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15) !important; /* 统一阴影 */
+    transition: all 0.3s ease !important; /* 统一过渡 */
+    border: none; /* 确保无边框 */
+}
+
+/* 定位 */
 #theme-toggle-btn {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 38px !important;
-    height: 38px !important;
-    border-radius: 50% !important;
-    transition: all 0.3s ease !important;
-    background: transparent !important;
-    color: inherit !important;
-    position: relative !important;
-    overflow: hidden !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
-    margin-right: 15px !important;
-    z-index: 1001 !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+    bottom: 15px !important; /* 主题按钮在下 */
+}
+.go-up a {
+    bottom: 65px !important; /* 回到顶部在上 (15 + 40 + 10) */
 }
 
-.ai-theme #theme-toggle-btn {
-    color: var(--ai-text);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+/* 图标大小 */
+#theme-toggle-btn i, .go-up a i {
+    font-size: 18px !important; /* 统一图标大小 */
+    line-height: 1 !important; /* 确保居中 */
+    transition: transform 0.3s ease; /* 添加图标过渡 */
 }
 
-.light-theme #theme-toggle-btn {
-    color: var(--ai-light-text);
+/* 亮色模式背景和图标颜色 */
+.light-theme #theme-toggle-btn, .light-theme .go-up a {
+    background-color: #f8f9fa !important; /* 亮模式用浅灰色背景 */
+    color: #495057 !important; /* 深灰色图标 */
 }
 
-#theme-toggle-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(111, 66, 193, 0.1);
-    border-radius: 50%;
-    transform: scale(0);
-    transition: transform 0.3s ease;
-    z-index: 1;
+/* 暗色模式背景和图标颜色 */
+.ai-theme #theme-toggle-btn, .ai-theme .go-up a {
+    background-color: #343a40 !important; /* 暗模式用深灰色背景 */
+    color: #e9ecef !important; /* 浅灰色图标 */
+}
+
+/* 统一悬停效果 */
+#theme-toggle-btn:hover, .go-up a:hover {
+    transform: scale(1.1) translateY(-2px); /* 稍微放大上移 */
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2) !important; /* 悬停阴影加深 */
+}
+
+/* 悬停时图标旋转 (可选) */
+#theme-toggle-btn:hover i {
+    transform: rotate(360deg);
+}
+.go-up a:hover i {
+    /* 可以不旋转或加其他效果 */
+}
+
+/* 导航菜单高亮样式 */
+.sidebar-menu .main-menu li.active > a {
+    background-color: rgba(111, 66, 193, 0.15);
+    color: #8c5bc9 !important;
+    font-weight: bold;
+    border-left: 3px solid #8c5bc9;
+}
+
+.light-theme .sidebar-menu .main-menu li.active > a {
+    background-color: rgba(111, 66, 193, 0.1);
+    color: #6f42c1 !important;
+    font-weight: bold;
+    border-left: 3px solid #6f42c1;
+}
+
+.sidebar-menu .main-menu li.active > a i {
+    color: #8c5bc9 !important;
+}
+
+.light-theme .sidebar-menu .main-menu li.active > a i {
+    color: #6f42c1 !important;
+}
+
+/* 导航菜单hover效果增强 */
+.sidebar-menu .main-menu li > a:hover {
+    background-color: rgba(111, 66, 193, 0.05);
+    transition: all 0.3s ease;
+}
+
+/* 子菜单项高亮样式 */
+.sidebar-menu .main-menu li ul li.active > a {
+    background-color: rgba(111, 66, 193, 0.1);
+    color: #8c5bc9 !important;
+    padding-left: 40px;
+    border-left: none;
+}
+
+.light-theme .sidebar-menu .main-menu li ul li.active > a {
+    background-color: rgba(111, 66, 193, 0.05);
+    color: #6f42c1 !important;
+    padding-left: 40px;
+    border-left: none;
+}
+
+/* AI工具卡片 - 访问官网按钮样式 (美化版 v3 - 更浅) */
+.visit-website-button {
+  position: absolute;
+  top: 8px;
+  right: 25px;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: #fff !important; 
+  background-color: rgba(111, 66, 193, 0.5); /* 默认/亮色模式：浅紫色 */
+  border-radius: 4px; 
+  text-decoration: none !important; 
+  z-index: 10; 
+  transition: all 0.2s ease-in-out, transform 0.3s ease; 
+  transform: translateY(0px); 
+  border: none; 
+}
+
+/* 暗色模式下的按钮背景色 */
+body.ai-theme .visit-website-button {
+  background-color: rgba(0, 123, 255, 0.6); /* 暗色模式：用蓝色 */
+}
+
+/* 添加图标 */
+.visit-website-button::after {
+  content: '\f08e'; 
+  font-family: 'FontAwesome';
+  font-size: 11px; 
+  margin-left: 6px; 
+  line-height: 1; 
+}
+
+/* 恢复按钮的 CSS hover transform */
+body.ai-theme .xe-card:hover .visit-website-button {
+  transform: translateY(-5px);
+}
+body.light-theme .xe-card:hover .visit-website-button {
+  transform: translateY(-5px);
 }
 
 /* 悬停效果 */
-.ai-theme #theme-toggle-btn:hover {
-    transform: scale(1.1);
-    color: var(--ai-accent);
-    box-shadow: 0 0 15px rgba(111, 66, 193, 0.3);
+.visit-website-button:hover {
+  background-color: rgba(111, 66, 193, 0.7); /* 默认/亮色模式：悬停浅紫色 */
+  color: #fff !important; 
+  text-decoration: none !important; 
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2); 
 }
 
-.ai-theme #theme-toggle-btn:hover::before {
-    transform: scale(1);
+/* 暗色模式下的按钮悬停背景色 */
+body.ai-theme .visit-website-button:hover {
+  background-color: rgba(0, 123, 255, 0.8); /* 暗色模式：悬停用更实的蓝色 */
 }
 
-.light-theme #theme-toggle-btn:hover {
-    transform: scale(1.1);
-    color: var(--ai-light-primary);
-    box-shadow: 0 3px 15px rgba(111, 66, 193, 0.15);
+/* 恢复悬停效果 (使用 JS class 控制) */
+body.ai-theme .xe-card.card-hovered .xe-widget.xe-conversations {
+  transform: translateY(-5px);
+  box-shadow: var(--ai-glow);
+  border-color: var(--ai-accent);
+  background: linear-gradient(145deg, var(--ai-dark-lighter), rgba(111, 66, 193, 0.1)) !important;
 }
 
-.light-theme #theme-toggle-btn:hover::before {
-    transform: scale(1);
-    background: rgba(111, 66, 193, 0.05);
+/* 恢复悬停效果 (使用 JS class 控制) */
+body.ai-theme .xe-card.card-hovered .box2 {
+  transform: translateY(-5px);
+  box-shadow: var(--ai-glow);
+  border-color: var(--ai-accent);
 }
 
-/* 图标样式 */
-#theme-toggle-icon {
-    font-size: 18px !important;
-    transition: all 0.3s ease !important;
-    margin: 0 !important;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.2) !important;
+/* 恢复悬停效果 (使用 JS class 控制) */
+body.light-theme .xe-card.card-hovered .xe-widget.xe-conversations {
+  transform: translateY(-5px);
+  box-shadow: var(--ai-light-glow);
+  border-color: var(--ai-light-primary);
+  background: linear-gradient(145deg, #ffffff, rgba(136, 84, 224, 0.05)) !important;
 }
 
-#theme-toggle-btn:hover #theme-toggle-icon {
-    transform: rotate(360deg) !important;
+/* 恢复悬停效果 (使用 JS class 控制) */
+body.light-theme .xe-card.card-hovered .box2 {
+  transform: translateY(-5px);
+  box-shadow: var(--ai-light-glow);
+  border-color: var(--ai-light-primary);
 }
 
-.ai-theme #theme-toggle-btn:hover #theme-toggle-icon {
-    text-shadow: 0 0 10px var(--ai-accent) !important;
+/* 恢复按钮的 CSS hover transform (使用 JS class 控制) */
+body.ai-theme .xe-card.card-hovered .visit-website-button {
+  transform: translateY(-5px);
+}
+body.light-theme .xe-card.card-hovered .visit-website-button {
+  transform: translateY(-5px);
 }
 
-.light-theme #theme-toggle-btn:hover #theme-toggle-icon {
-    text-shadow: 0 0 10px var(--ai-light-primary) !important;
+.main-content {
+    padding-right: 70px; /* 为右侧固定按钮留出空间 */
+    position: relative; /* 确保 position 设置，以包含内部元素 */
+    margin-left: 250px; /* 保持原有的左边距（如果存在）*/
+    padding-bottom: 80px; /* 确保页脚上方有足够空间 */
+    padding-left: 20px; /* 保持/设置左侧内边距 */
+    padding-top: 20px; /* 保持/设置顶部内边距 */
 }
-
-/* 移动设备适配相关代码已合并到顶部统一媒体查询中 */ 

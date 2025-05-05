@@ -10,7 +10,7 @@
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:title" content="{{ .Title }} - {{ .Site.Title }} | 精选AI工具分类">
 <meta property="og:description" content="{{ .Title }}分类下的精选AI工具导航，包含多款优质{{ .Title }}工具和应用。">
-<meta property="og:image" content="{{ .Site.BaseURL }}assets/favicon.png">
+<meta property="og:image" content="{{ .Site.BaseURL }}assets/images/site/favicon.png">
 <meta property="og:site_name" content="{{ .Site.Title }}">
 <link rel="canonical" href="{{ .Permalink }}" />
 
@@ -53,8 +53,8 @@
 }
 </script>
 
-<link rel="shortcut icon" href="/assets/favicon.png">
-<link rel="apple-touch-icon" href="/assets/app-ico.png">
+<link rel="shortcut icon" href="/assets/images/site/favicon.png">
+<link rel="apple-touch-icon" href="/assets/images/site/app-ico.png">
 <link rel='stylesheet' id='font-awesome-css'  href='/assets/css/font-awesome.min.css?ver=4.7.0' type='text/css' media='all' />
 <link rel='stylesheet' id='bootstrap-css'  href='/assets/css/bootstrap.css?ver=3.4.1' type='text/css' media='all' />
 <link rel='stylesheet' id='nav-css'  href='/assets/css/nav.css?ver=2.0.0' type='text/css' media='all' />
@@ -139,12 +139,6 @@
                                 <i class="fa fa-home"></i> 返回首页
                             </a>
                         </li>
-                        <!-- 将主题切换按钮添加到左侧 -->
-                        <li>
-                            <a href="#" id="theme-toggle-btn" title="切换主题" style="display: flex !important; align-items: center !important; justify-content: center !important; width: 38px !important; height: 38px !important; border-radius: 50% !important; background: rgba(111, 66, 193, 0.1) !important;">
-                                <i class="fa fa-moon-o" id="theme-toggle-icon" style="font-size: 18px !important;"></i>
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </nav>
@@ -170,12 +164,12 @@
                                 {{ if .links }}
                                     {{ range $index, $element := .links }}
                                         {{ $toolsFound = true }}
-                                        <div class="xe-card col-sm-4 col-md-3" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                                        <div class="xe-card col-sm-4 col-md-3" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" style="position: relative;">
                                             <a href="{{ .url }}" target="_blank" class="xe-widget xe-conversations box2 label-info" itemprop="url">
                                                 <meta itemprop="position" content="{{ add $index 1 }}">
                                                 <div class="xe-comment-entry">
                                                     <div class="xe-user-img">
-                                                        <img class="img-circle lazy" src="/assets/images/favicon.png" data-src="{{ if strings.HasPrefix .logo "/" }}{{ .logo }}{{ else }}/{{ .logo }}{{ end }}" onerror="javascript:this.src='/assets/images/favicon.png'" width="40" itemprop="image">
+                                                        <img class="img-circle lazy" src="/assets/images/site/favicon.png" data-src="{{ if strings.HasPrefix .logo "/" }}{{ .logo }}{{ else }}/{{ .logo }}{{ end }}" onerror="javascript:this.src='/assets/images/site/favicon.png'" width="40" itemprop="image">
                                                     </div>
                                                     <div class="xe-comment">
                                                         <div class="xe-user-name overflowClip_1" itemprop="name">
@@ -185,6 +179,8 @@
                                                     </div>
                                                 </div>
                                             </a>
+                                            <!-- 添加官网按钮 -->
+                                            {{/* <a href="{{ .url }}" target="_blank" class="visit-website-button" title="访问 {{ .title }} 官网">官网</a> */}}
                                         </div>
                                     {{ end }}
                                 {{ else if .list }}
@@ -192,12 +188,12 @@
                                         {{ if eq .term $categoryName }}
                                             {{ range $index, $element := .links }}
                                                 {{ $toolsFound = true }}
-                                                <div class="xe-card col-sm-4 col-md-3" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                                                <div class="xe-card col-sm-4 col-md-3" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" style="position: relative;">
                                                     <a href="{{ .url }}" target="_blank" class="xe-widget xe-conversations box2 label-info" itemprop="url">
                                                         <meta itemprop="position" content="{{ add $index 1 }}">
                                                         <div class="xe-comment-entry">
                                                             <div class="xe-user-img">
-                                                                <img class="img-circle lazy" src="/assets/images/favicon.png" data-src="{{ if strings.HasPrefix .logo "/" }}{{ .logo }}{{ else }}/{{ .logo }}{{ end }}" onerror="javascript:this.src='/assets/images/favicon.png'" width="40" itemprop="image">
+                                                                <img class="img-circle lazy" src="/assets/images/site/favicon.png" data-src="{{ if strings.HasPrefix .logo "/" }}{{ .logo }}{{ else }}/{{ .logo }}{{ end }}" onerror="javascript:this.src='/assets/images/site/favicon.png'" width="40" itemprop="image">
                                                             </div>
                                                             <div class="xe-comment">
                                                                 <div class="xe-user-name overflowClip_1" itemprop="name">
@@ -207,6 +203,8 @@
                                                             </div>
                                                         </div>
                                                     </a>
+                                                    <!-- 添加官网按钮 -->
+                                                    {{/* <a href="{{ .url }}" target="_blank" class="visit-website-button" title="访问 {{ .title }} 官网">官网</a> */}}
                                                 </div>
                                             {{ end }}
                                         {{ end }}
@@ -218,12 +216,12 @@
                                         {{ if eq .term $categoryName }}
                                             {{ range $index, $element := .links }}
                                                 {{ $toolsFound = true }}
-                                                <div class="xe-card col-sm-4 col-md-3" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                                                <div class="xe-card col-sm-4 col-md-3" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" style="position: relative;">
                                                     <a href="{{ .url }}" target="_blank" class="xe-widget xe-conversations box2 label-info" itemprop="url">
                                                         <meta itemprop="position" content="{{ add $index 1 }}">
                                                         <div class="xe-comment-entry">
                                                             <div class="xe-user-img">
-                                                                <img class="img-circle lazy" src="/assets/images/favicon.png" data-src="{{ if strings.HasPrefix .logo "/" }}{{ .logo }}{{ else }}/{{ .logo }}{{ end }}" onerror="javascript:this.src='/assets/images/favicon.png'" width="40" itemprop="image">
+                                                                <img class="img-circle lazy" src="/assets/images/site/favicon.png" data-src="{{ if strings.HasPrefix .logo "/" }}{{ .logo }}{{ else }}/{{ .logo }}{{ end }}" onerror="javascript:this.src='/assets/images/site/favicon.png'" width="40" itemprop="image">
                                                             </div>
                                                             <div class="xe-comment">
                                                                 <div class="xe-user-name overflowClip_1" itemprop="name">
@@ -233,6 +231,8 @@
                                                             </div>
                                                         </div>
                                                     </a>
+                                                    <!-- 添加官网按钮 -->
+                                                    {{/* <a href="{{ .url }}" target="_blank" class="visit-website-button" title="访问 {{ .title }} 官网">官网</a> */}}
                                                 </div>
                                             {{ end }}
                                         {{ end }}
@@ -254,7 +254,7 @@
                     <div class="category-tags">
                         {{ range .Site.Data.webstack }}
                             {{ if ne .taxonomy $categoryName }}
-                                <a href="/categories/{{ .taxonomy | urlquery }}/" class="category-tag">{{ .taxonomy }}</a>
+                                <a href="/categories/{{ .slug }}/" class="category-tag">{{ .taxonomy }}</a>
                             {{ end }}
                         {{ end }}
                     </div>
@@ -267,6 +267,11 @@
                         <i class="fa fa-angle-up"></i>
                     </a>
                 </div>
+                <li>
+                    <a href="#" id="theme-toggle-btn" title="切换主题">
+                        <i class="fa fa-moon-o" id="theme-toggle-icon"></i>
+                    </a>
+                </li>
                 <div class="footer-inner">
                     <div class="footer-text">
                         <a href="https://www.aigc-fan.com/"><strong>{{ if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}aigc-fan.com{{ end }}</strong></a>

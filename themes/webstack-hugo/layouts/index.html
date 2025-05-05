@@ -27,11 +27,10 @@
 <link rel="canonical" href="{{ .Site.BaseURL }}" />
 
 <!-- 资源预加载 -->
-<link rel="preload" href="./assets/css/font-awesome.min.css" as="style">
-<link rel="preload" href="./assets/css/bootstrap.css" as="style">
-<link rel="preload" href="./assets/css/nav.css" as="style">
-<link rel="preload" href="./assets/css/ai-theme.css" as="style">
-<link rel="preload" href="./assets/js/jquery-1.11.1.min.js" as="script">
+<link rel="stylesheet" href="./assets/css/font-awesome.min.css?ver=4.7.0" type='text/css' media='all' />
+<link rel="stylesheet" href="./assets/css/bootstrap.css?ver=3.4.1" type='text/css' media='all' />
+<link rel="stylesheet" href="./assets/css/nav.css?ver=2.0.0" type='text/css' media='all' />
+<link rel="stylesheet" href="./assets/css/ai-theme.css?ver=1.0.0" type='text/css' media='all' />
 
 <!-- 预加载主题脚本 - 防止闪烁 -->
 <script>
@@ -155,10 +154,6 @@
 
 <link rel="shortcut icon" href="./assets/images/site/favicon.png">
 <link rel="apple-touch-icon" href="./assets/images/site/app-ico.png">
-<link rel='stylesheet' id='font-awesome-css'  href='./assets/css/font-awesome.min.css?ver=4.7.0' type='text/css' media='all' />
-<link rel='stylesheet' id='bootstrap-css'  href='./assets/css/bootstrap.css?ver=3.4.1' type='text/css' media='all' />
-<link rel='stylesheet' id='nav-css'  href='./assets/css/nav.css?ver=2.0.0' type='text/css' media='all' />
-<link rel='stylesheet' id='ai-theme-css'  href='./assets/css/ai-theme.css?ver=1.0.0' type='text/css' media='all' />
 
 <!-- 优化Google字体加载 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -176,6 +171,7 @@
   }
 </style>
 
+<!-- jQuery库 -->
 <script type='text/javascript' src='./assets/js/jquery-1.11.1.min.js'></script>
 
 <!-- Google tag (gtag.js) -->
@@ -248,12 +244,6 @@
             <li class="hidden-xs">
             <a href="#" data-toggle="sidebar"><i class="fa fa-bars"></i></a>
             </li>
-            <!-- 将主题切换按钮添加到左侧 -->
-            <li>
-                <a href="#" id="theme-toggle-btn" title="切换主题" style="display: flex !important; align-items: center !important; justify-content: center !important; width: 38px !important; height: 38px !important; border-radius: 50% !important; background: rgba(111, 66, 193, 0.1) !important;">
-                    <i class="fa fa-moon-o" id="theme-toggle-icon" style="font-size: 18px !important;"></i>
-                </a>
-            </li>
         </ul>
     </div>
 </nav>
@@ -268,7 +258,7 @@
                 <h2 class="text-gray" id="category-{{ md5 .term }}" style="display: inline-block;">
                     <i class="icon-io-tag" style="margin-right: 27px;" id="{{ md5 .term }}"></i>{{ .term }}
                 </h2>
-                <a href="/categories/{{ .term | urlquery }}/" target="_blank" class="category-more-link" title="查看《{{ .term }}》分类的更多内容">
+                <a href="/categories/{{ .slug }}/" target="_blank" class="category-more-link" title="查看《{{ .taxonomy }}》分类的更多内容">
                     <span class="more-text">查看更多</span> <i class="fa fa-angle-right"></i>
                 </a>
                 <meta itemprop="name" content="{{ .term }} - AI工具导航">
@@ -277,7 +267,7 @@
             <div class="row" itemscope itemtype="http://schema.org/ItemList">
             {{ range $index, $element := .links }}
                 {{ if .qrcode }}
-                <div class="xe-card col-sm-4 col-md-3 qrcode" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <div class="xe-card col-12 col-sm-6 col-md-4 col-lg-3 qrcode" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" style="position: relative;">
                     <a href="javascript:" target="" class="xe-widget xe-conversations box2 label-info" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<img src='{{ .qrcode }}' width='128'>" itemprop="url">
                         <meta itemprop="position" content="{{ add $index 1 }}">
                         <div class="xe-comment-entry">
@@ -292,9 +282,11 @@
                             </div>
                         </div>
                     </a>
+                    <!-- 修改按钮文字 -->
+                    {{/* <a href="{{ .url }}" target="_blank" class="visit-website-button" title="访问 {{ .title }} 官网">官网</a> */}}
                 </div>
                 {{ else }}
-                <div class="xe-card col-sm-4 col-md-3" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <div class="xe-card col-12 col-sm-6 col-md-4 col-lg-3" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" style="position: relative;">
                     <a href="{{ .url }}" target="_blank" class="xe-widget xe-conversations box2 label-info" itemprop="url">
                         <meta itemprop="position" content="{{ add $index 1 }}">
                         <div class="xe-comment-entry">
@@ -309,6 +301,8 @@
                             </div>
                         </div>
                     </a>
+                    <!-- 修改按钮文字 -->
+                    {{/* <a href="{{ .url }}" target="_blank" class="visit-website-button" title="访问 {{ .title }} 官网">官网</a> */}}
                 </div>
                 {{ end }}
             {{ end }}
@@ -324,7 +318,7 @@
                 <h2 class="text-gray" id="category-{{ md5 .taxonomy }}" style="display: inline-block;">
                     <i class="icon-io-tag" style="margin-right: 27px;" id="{{ md5 .taxonomy }}"></i>{{ .taxonomy }}
                 </h2>
-                <a href="/categories/{{ .taxonomy | urlquery }}/" target="_blank" class="category-more-link" title="查看《{{ .taxonomy }}》分类的更多内容">
+                <a href="/categories/{{ .slug }}/" target="_blank" class="category-more-link" title="查看《{{ .taxonomy }}》分类的更多内容">
                     <span class="more-text">查看更多</span> <i class="fa fa-angle-right"></i>
                 </a>
                 <meta itemprop="name" content="{{ .taxonomy }} - AI工具导航">
@@ -333,7 +327,7 @@
             <div class="row" itemscope itemtype="http://schema.org/ItemList">
             {{ range $index, $element := .links }}
                 {{ if .qrcode }}
-                <div class="xe-card col-sm-4 col-md-3 qrcode" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <div class="xe-card col-12 col-sm-6 col-md-4 col-lg-3 qrcode" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" style="position: relative;">
                     <a href="javascript:" target="" class="xe-widget xe-conversations box2 label-info" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<img src='{{ .qrcode }}' width='128'>" itemprop="url">
                         <meta itemprop="position" content="{{ add $index 1 }}">
                         <div class="xe-comment-entry">
@@ -348,9 +342,11 @@
                             </div>
                         </div>
                     </a>
+                    <!-- 修改按钮文字 -->
+                    {{/* <a href="{{ .url }}" target="_blank" class="visit-website-button" title="访问 {{ .title }} 官网">官网</a> */}}
                 </div>
                 {{ else }}
-                <div class="xe-card col-sm-4 col-md-3" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <div class="xe-card col-12 col-sm-6 col-md-4 col-lg-3" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" style="position: relative;">
                     <a href="{{ .url }}" target="_blank" class="xe-widget xe-conversations box2 label-info" itemprop="url">
                         <meta itemprop="position" content="{{ add $index 1 }}">
                         <div class="xe-comment-entry">
@@ -365,6 +361,8 @@
                             </div>
                         </div>
                     </a>
+                    <!-- 修改按钮文字 -->
+                    {{/* <a href="{{ .url }}" target="_blank" class="visit-website-button" title="访问 {{ .title }} 官网">官网</a> */}}
                 </div>
                 {{ end }}
             {{ end }}
@@ -381,6 +379,11 @@
                         <i class="fa fa-angle-up"></i>
                     </a>
                 </div>
+                <li>
+                    <a href="#" id="theme-toggle-btn" title="切换主题">
+                        <i class="fa fa-moon-o" id="theme-toggle-icon"></i>
+                    </a>
+                </li>
                 <div class="footer-inner">
                     <div class="footer-text">
                         <a href="https://www.aigc-fan.com/"><strong>{{ if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}aigc-fan.com{{ end }}</strong></a>
@@ -694,11 +697,44 @@
                 }
             })
             $("#main-menu li ul li").click(function() {
-                $(this).siblings('li').removeClass('active'); // 删除其他兄弟元素的样式
-                $(this).addClass('active'); // 添加当前元素的样式
+                $(this).siblings('li').removeClass('active'); 
+                $(this).addClass('active'); 
             });
             
-            // 加载图片
+            // 为所有菜单项添加点击处理程序
+            $("#main-menu li a").on('click', function() {
+                // 移除所有高亮
+                $('#main-menu li').removeClass('active');
+                
+                // 添加高亮到当前点击项
+                $(this).parent('li').addClass('active');
+                
+                // 如果是URL hash链接，保存到localStorage以便页面刷新后保持高亮
+                const href = $(this).attr('href');
+                if (href && href.startsWith('#')) {
+                    localStorage.setItem('activeMenuItem', href);
+                }
+            });
+            
+            // 页面加载时恢复之前保存的高亮状态
+            const savedActiveItem = localStorage.getItem('activeMenuItem');
+            if (savedActiveItem) {
+                // 找到匹配的菜单项并添加高亮
+                $('#main-menu li a').each(function() {
+                    if ($(this).attr('href') === savedActiveItem) {
+                        $(this).parent('li').addClass('active');
+                    }
+                });
+            } else if (window.location.hash) {
+                // 如果没有保存的项但有URL hash，根据hash设置高亮
+                const hash = window.location.hash;
+                $('#main-menu li a').each(function() {
+                    if ($(this).attr('href') === hash) {
+                        $(this).parent('li').addClass('active');
+                    }
+                });
+            }
+            
             var lazyLoadInstance = new LazyLoad({
                 elements_selector: ".lazy"
             });

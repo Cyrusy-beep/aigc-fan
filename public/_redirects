@@ -1,12 +1,5 @@
 # 启用 Netlify 重定向规则
 
-# 特定分类URL重定向规则
-/categories/%E9%98%85%E8%AF%BBai/* /categories/%E9%98%85%E8%AF%BBAI/ 301
-/categories/%E9%98%85%E8%AF%BBai /categories/%E9%98%85%E8%AF%BBAI/ 301
-/categories/阅读ai/* /categories/%E9%98%85%E8%AF%BBAI/ 301
-/categories/阅读ai /categories/%E9%98%85%E8%AF%BBAI/ 301
-/categories/%E9%98%85%E8%AF%BBAI /categories/%E9%98%85%E8%AF%BBAI/ 301
-
 # 1. 适用于错误编码的分类URL重定向到正确编码
 /categories/* /.netlify/functions/url-redirect 200
 

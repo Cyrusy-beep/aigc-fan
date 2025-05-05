@@ -19,6 +19,31 @@ def slugify(text):
     text = text.strip('-')
     return text
 
+# 中文分类名到英文slug的映射
+CATEGORY_TO_SLUG = {
+    '聊天AI': 'chat-ai',
+    '阅读AI': 'reading-ai',
+    '写作AI': 'writing-ai',
+    '绘画AI': 'painting-ai',
+    '图像AI': 'image-ai',
+    '设计AI': 'design-ai',
+    '音频AI': 'audio-ai',
+    '视频AI': 'video-ai',
+    '编程AI': 'coding-ai',
+    '开发框架': 'development-frameworks',
+    '提示词工程': 'prompt-engineering',
+    '办公AI': 'office-ai',
+    '内容检测': 'content-detection',
+    '模型训练': 'model-training',
+    '跨境AI': 'cross-border-ai',
+    'AI学习资源': 'ai-learning-resources',
+    '背景移除': 'background-removal',
+    '无损调整': 'lossless-adjustment',
+    '优化修复': 'optimization-repair',
+    '物体抹除': 'object-removal',
+    '3D AI': '3d-ai'
+}
+
 # 为每个分类生成详细描述
 category_descriptions = {
     "聊天AI": {
@@ -146,8 +171,14 @@ for item in data:
 
 # 为每个分类创建页面
 for category in categories:
-    # 创建分类的目录
-    category_slug = slugify(category)
+    # 获取英文slug
+    if category in CATEGORY_TO_SLUG:
+        category_slug = CATEGORY_TO_SLUG[category]
+    else:
+        # 如果在映射表中不存在，则使用默认的slugify函数
+        category_slug = slugify(category)
+    
+    # 创建分类的目录 - 使用英文slug
     category_dir = f'content/categories/{category_slug}'
     os.makedirs(category_dir, exist_ok=True)
     
@@ -164,6 +195,6 @@ for category in categories:
             features=description["features"]
         ))
     
-    print(f"已创建详细分类页面: {category}")
+    print(f"已创建详细分类页面: {category} (目录: {category_slug})")
 
 print(f"共创建了 {len(categories)} 个详细分类页面") 

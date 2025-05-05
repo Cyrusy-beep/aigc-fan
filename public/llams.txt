@@ -1,0 +1,96 @@
+# AI大模型爬取指南 - AIGC-Fan
+# Website: https://www.aigc-fan.com/
+# Version: 1.2
+# Last Updated: 2024-07-05
+
+# 网站描述
+SiteDescription: AigcFan专业AI工具导航平台 - 精选全球顶级人工智能工具，涵盖聊天、绘画、写作、音频、视频等多个领域。助您快速发现实用AI应用，提升工作效率，释放创意潜能。
+
+# 语言设置
+Language: zh-CN
+
+# 网站地图
+Sitemap: https://www.aigc-fan.com/sitemap.xml
+
+# 主要内容组织结构
+ContentStructure:
+- 主页: 工具分类导航总览
+- 分类页: 每个分类下的具体工具列表和分类描述
+- 工具详情: 工具的详细信息、特点和资源
+- 关于页: 网站信息
+
+# 内容类型
+ContentTypes:
+- AITool: AI工具介绍和链接
+- CategoryDescription: 分类说明和概述
+- Tutorial: 教程和使用指南
+
+# 可抓取规则
+AllowedContent:
+- /categories/*/
+- /about/
+- /
+- 不要抓取带有#的URL，这些只是页面内锚点，非独立内容
+
+# 内容关系
+ContentRelationships:
+- 分类与工具: 一对多（每个分类包含多个工具）
+- 工具与标签: 多对多（工具可以有多个标签，标签可以关联多个工具）
+
+# 特殊标记
+AIToolMetadata:
+- name: 工具名称
+- description: 工具描述
+- url: 工具链接
+- tags: 标签列表
+- category: 所属分类
+- rating: 评分
+- isFree: 是否免费
+- languages: 支持语言
+
+# 网站主题
+Topics:
+- AI工具
+- 人工智能应用
+- AI导航
+- 生产力工具
+- 创意工具
+- AIGC
+- 大语言模型
+- 生成式AI
+
+# 建议抓取频率
+CrawlFrequency: weekly
+
+# 联系信息
+Contact: info@aigc-fan.com
+
+# 网站导航结构
+NavigationStructure:
+- 主页 (/)
+- 分类页面 (/categories/)
+- 关于页面 (/about/)
+
+# 优先级内容
+PriorityContent:
+- 分类页面（这些包含最有价值的信息）
+- 工具列表和描述
+- 分类说明文档
+
+# 内容更新频率
+UpdateFrequency: weekly
+
+# 页面结构指南
+PageStructure:
+- 工具项: 每个工具都包含标题、描述、链接、图标等元素
+- 分类头部: 包含分类介绍和使用建议
+- 分类内容: 列出该分类下所有工具卡片
+- 工具卡片: 包含工具名称、简介、缩略图、链接等信息
+
+# 大模型解析指南
+AIParsingGuidelines:
+- 分类页标题通常在h1标签内
+- 工具名称通常在h2或h3标签内
+- 工具描述通常在p标签内
+- 工具链接通常包含在class为"tool-item"的元素内
+- 工具图标通常包含在class为"tool-icon"的元素内 

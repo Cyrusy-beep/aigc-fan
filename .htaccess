@@ -16,9 +16,9 @@ RewriteEngine On
   RewriteRule .* /categories/%E9%98%85%E8%AF%BBAI/ [R=301,L]
   
   # 处理其他中文分类URL
-  RewriteCond %{REQUEST_URI} ^/categories/(.*)$ 
-  RewriteCond %{REQUEST_URI} !^/categories/%E9%98%85%E8%AF%BBAI/?$
-  RewriteRule .* /categories/%1 [NE,R=302]
+#  RewriteCond %{REQUEST_URI} ^/categories/(.*)$
+#  RewriteCond %{REQUEST_URI} !^/categories/%E9%98%85%E8%AF%BBAI/?$
+#  RewriteRule .* /categories/%1 [NE,R=302]
   
   # 处理404错误页面
   ErrorDocument 404 /404.html
